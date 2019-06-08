@@ -157,3 +157,14 @@ CRGB Approach(CRGB source, CRGB destination){
   return CRGB(r, g, b);
 }
 
+
+
+void torture()
+{
+  while(true){
+    for(int i = 0; i < NUM_LEDS; i++){
+      leds[i] = CRGB(random(256),random(256),random(256));
+    }
+    FastLED.show();
+  }
+}

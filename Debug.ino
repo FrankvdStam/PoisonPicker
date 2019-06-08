@@ -23,4 +23,3 @@ void PrintColor(CRGB crgb){
   Serial.print(crgb.b);
   Serial.print(")");
 }
-

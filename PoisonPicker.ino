@@ -4,9 +4,12 @@
 //Definitions
 //===============================================================================================================================================
 
-#define NUM_LED_SEGMENTS 5
+#define NUM_LED_SEGMENTS 9
 #define LEDS_PER_SEGMENT 8
-#define NUM_LEDS 40
+#define NUM_LEDS 72
+
+//potentiometer for variable brightness
+#define POTENTIOMETER_BRIGHTNESS A0
 
 #define BUTTON_ENABLE 5
 #define BUTTON_RANDOM 4
@@ -19,6 +22,10 @@
 
 //randomizer
 #define RANDOMIZER_START_INTERVAL 10
+
+
+
+int previous_graph_position;
 
 //===============================================================================================================================================
 //Variables
@@ -43,6 +50,9 @@ CRGB leds[NUM_LEDS];
 unsigned long flowInterval = 10;
 unsigned long flowPreviousMillis = 0;
 bool flowTick = false;
+
+int previous_brightness = 0;
+
 
 void RunTimers(){
   flowTick = false;
@@ -77,8 +87,11 @@ void setup() {
   
   pinMode(BUTTON_ENABLE, INPUT_PULLUP);
   pinMode(BUTTON_RANDOM, INPUT_PULLUP);
-
+  pinMode(POTENTIOMETER_BRIGHTNESS, INPUT);
+  previous_brightness = map(analogRead(POTENTIOMETER_BRIGHTNESS), 0, 900, 0, 255); 
+  previous_graph_position = map_analog_read_graph();
   FastLED.addLeds<WS2812, 6, GRB>(leds, NUM_LEDS);
+  
   /*
   for(int i = 0; i < NUM_LEDS; i++){
     leds[i] = CRGB::White;
@@ -94,7 +107,7 @@ void setup() {
   FastLED.show();
   delay(5000);
 */
-  FastLED.setBrightness(50);
+  FastLED.setBrightness(10);
   randomSeed(analogRead(0));
 
   GoToIdleState(true);
@@ -102,14 +115,30 @@ void setup() {
 
 
 
+void set_brightness()
+{  
+  int difference = 5;
+  int current_brightness = map(analogRead(POTENTIOMETER_BRIGHTNESS), 0, 900, 0, 255);
 
+  if(current_brightness + difference < previous_brightness || current_brightness - difference > previous_brightness)
+  {
+    previous_brightness = current_brightness;
+    FastLED.setBrightness(current_brightness);
+  }
+}
 
 
 //===============================================================================================================================================
 //State machine
 //===============================================================================================================================================
 
+
 void loop() {
+set_color_from_potentiometer();
+
+  /*
+ set_brightness();
+ 
   RunTimers();
   
   
@@ -126,9 +155,5 @@ void loop() {
   }
   //Serial.println("Showing leds");
   //PrintLeds();
-  FastLED.show();  
+  FastLED.show();  */
 }
-
-
-
-
