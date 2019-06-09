@@ -1,31 +1,38 @@
 #include "color_wheel.h"
-
+#include "../debug.h"
+//#include "../animator.h"
 
 namespace poison_picker {
 	namespace animations
 	{
-		color_wheel::color_wheel(devices::i_led_controller* led_controller, devices::i_dashboard* dashboard)
+		color_wheel::color_wheel(i_led_controller* led_controller, i_dashboard* dashboard)
 			: i_animation(led_controller, dashboard) {}
+		
+		void color_wheel::activate(unsigned long miliseconds)
+		{
+			m_dashboard->display_clear();
+			m_dashboard->display_write("Color wheel\n");
+		}
 
 		void color_wheel::update(unsigned long miliseconds) 
-		{
-			//m_led_controller->set_segment(0, rgb(255, 0   , 0  ));
-			//m_led_controller->set_segment(1, rgb(0  , 255 , 0  ));
-			//m_led_controller->set_segment(2, rgb(0  , 0   , 255));
-			//m_led_controller->show();
-
-
+		{			
+			
 			int potmeter_value = m_dashboard->potmeter_value();
+			
 			if (potmeter_value != m_potmeter_previous_value) 
 			{
 				m_potmeter_previous_value = potmeter_value;
-				int position = helper::numeric_map(potmeter_value, 50, 870, MIN_MAP_GRAPH, MAX_MAP_GRAPH);
+				int position = helper::numeric_map(potmeter_value, 20, 925, MIN_MAP_GRAPH, MAX_MAP_GRAPH);
+
 				rgb color = get_color_from_graph(position);
+
 				m_led_controller->set_all_leds(color);
 				m_led_controller->show();
 			}
 		}
 		
+		void color_wheel::deactivate(unsigned long miliseconds) {}
+
 		/*
 		We can generate 3 phases of this graph:
 		(y: r/g/b)
@@ -47,9 +54,7 @@ namespace poison_picker {
 			y = 0;
 		}
 
-		We offset each color to get 3 phases, thats the rgb values.
-		*/
-
+		We offset each color to get 3 phases, thats the rgb values. */
 		int color_wheel::map_graph_color(int position, int offset)
 		{
 			//loop position around, phases can loop around
@@ -79,10 +84,5 @@ namespace poison_picker {
 
 			return rgb(r, g, b);
 		}
-
-
-		
-
-		
 	}
 }

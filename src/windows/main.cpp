@@ -1,35 +1,30 @@
 #include <iostream>
 #include <pplib.h>
-
-struct rgb {
-	inline rgb(int r, int g, int b) : r(r), g(g), b(b) {}
-
-	int r;
-	int g;
-	int b;
-};
-
-
-class base {
-public:
-	virtual void test() = 0;
-};
-
-class derived : public base{
-	void test() {
-		std::cout << "Derived" << std::endl;
-	}
-};
+#include "led_controller.h"
+#include "dashboard.h"
 
 int main(int argc, char** argv)
 {
 	std::cout << "Fucking halfwitt" << std::endl;
 	
+	i_led_controller* m_led_controller = new led_controller();
+	dashboard* m_dashboard = new dashboard();
 
-	rgb a(1, 1, 1);
-	std::cout << a.r;// << std::end;
+	i_animation** animations = new i_animation * [1];
+	animations[0] = new color_wheel(m_led_controller, m_dashboard);
+	animations[1] = new brightness(m_led_controller, m_dashboard);
 
-	base* thing = new derived();
-	thing->test();
+	animator* m_animator = new animator(m_led_controller, m_dashboard, animations, 2);
+	
+	while (true) {
+		m_animator->update(0);
+		m_dashboard->toggle_state = true;
+		m_animator->update(0);
+		m_dashboard->toggle_state = false;
+	}
 
+
+	int i = 0;
+	int* p = &i;
+	int in = *p;
 }

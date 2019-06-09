@@ -134,9 +134,12 @@
   <ItemGroup>
     <ClInclude Include="animations\animations.h" />
     <ClInclude Include="animations\color_wheel.h" />
+    <ClInclude Include="animations\brightness.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="animations\flow.h" />
     <ClInclude Include="helper.h" />
     <ClInclude Include="rgb.h" />
-    <ClInclude Include="program.h" />
+    <ClInclude Include="animator.h" />
     <ClInclude Include="devices\i_dashboard.h" />
     <ClInclude Include="animations\i_animation.h" />
     <ClInclude Include="devices\i_led_controller.h" />
@@ -144,9 +147,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animations\color_wheel.cpp" />
+    <ClCompile Include="animations\flow.cpp" />
+    <ClCompile Include="animations\brightness.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="rgb.cpp" />
-    <ClCompile Include="program.cpp" />
+    <ClCompile Include="animator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,7 +2,7 @@
 
 led_controller::led_controller() : i_led_controller(NUMBER_OF_LEDS, NUMBER_OF_SEGMENTS, NUMBER_OF_LEDS_PER_SEGMENTS)
 {
-	FastLED.addLeds<WS2812, 6, EOrder::GRB>(leds, NUMBER_OF_LEDS);
+	FastLED.addLeds<WS2812, LED_PIN, EOrder::GRB>(leds, NUMBER_OF_LEDS);
 	FastLED.setBrightness(255);
 	FastLED.clear();
 }
@@ -29,8 +29,11 @@ void led_controller::set_segment(unsigned int index, poison_picker::rgb rgb)
 	}
 }
 
-void led_controller::set_brightness(int brightness)
+void led_controller::set_brightness(unsigned char brightness)
 {
+	Serial.print("Setting brightness: ");
+	Serial.print(brightness);
+	Serial.print('\n');
 	FastLED.setBrightness(brightness);
 }
 

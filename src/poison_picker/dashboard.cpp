@@ -54,6 +54,7 @@ void dashboard::display_clear()
 }
 	
 void dashboard::display_write(const char* string) {
+	Serial.write(string);
 	lcd->write(string);
 }
 

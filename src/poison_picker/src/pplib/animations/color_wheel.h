@@ -3,7 +3,8 @@
 #include "../rgb.h"
 #include "../helper.h"
 
-namespace poison_picker {
+namespace poison_picker 
+{
 	namespace animations
 	{
 		#define MIN_MAP_GRAPH 0
@@ -15,9 +16,11 @@ namespace poison_picker {
 
 		class color_wheel : public i_animation {
 		public:
-			color_wheel(devices::i_led_controller* led_controller, devices::i_dashboard* dashboard);
+			color_wheel(i_led_controller* led_controller, i_dashboard* dashboard);
 
+			void activate(unsigned long miliseconds);
 			void update(unsigned long miliseconds);
+			void deactivate(unsigned long miliseconds);
 
 		private:
 			rgb get_color_from_graph(int position);

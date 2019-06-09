@@ -7,9 +7,9 @@
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Arduino.h"
 
 //Button pins
-#define BUTTON_PIN_KEY 5
-#define BUTTON_PIN_TOGGLE_STATE 4
-#define BUTTON_PIN_RANDOMIZE 0
+#define BUTTON_PIN_KEY			6
+#define BUTTON_PIN_TOGGLE_STATE 7
+#define BUTTON_PIN_RANDOMIZE	8
 
 //Display pins
 #define DISPLAY_PIN_RS 12
