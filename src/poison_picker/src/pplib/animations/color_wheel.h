@@ -1,5 +1,7 @@
 #pragma once
 #include "i_animation.h"
+#include "../rgb.h"
+#include "../helper.h"
 
 namespace poison_picker {
 	namespace animations
@@ -16,6 +18,12 @@ namespace poison_picker {
 			color_wheel(devices::i_led_controller* led_controller, devices::i_dashboard* dashboard);
 
 			void update(unsigned long miliseconds);
+
+		private:
+			rgb get_color_from_graph(int position);
+			int map_graph_color(int position, int offset);
+
+			int m_potmeter_previous_value = 0;
 		};
 	}
 }

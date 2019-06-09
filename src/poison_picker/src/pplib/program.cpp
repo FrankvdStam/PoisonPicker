@@ -1,6 +1,4 @@
 #include "program.h"
-#include "pplib.h"
-#include "animations/animations.h"
 
 /*
 enum state {
@@ -17,21 +15,19 @@ enum inner_state {
 } ;
 */
 
-using poison_picker::devices::i_led_controller;
-using poison_picker::devices::i_dashboard;
-using poison_picker::animations::color_wheel;
+poison_picker::devices::i_led_controller* s_led_controller;
+poison_picker::devices::i_dashboard* s_dashboard;
 
-i_led_controller* s_led_controller;
-i_dashboard* s_dashboard;
+poison_picker::animations::color_wheel* s_color_wheel;
 
-color_wheel* s_color_wheel;
-
-void init(i_led_controller* led_controller, i_dashboard* dashboard)
+void init(poison_picker::devices::i_led_controller* led_controller, poison_picker::devices::i_dashboard* dashboard)
 {
+	//i_led_controller* led = new led_controller();
+
 	s_led_controller = led_controller;
 	s_dashboard = dashboard;
 
-	s_color_wheel = new color_wheel(s_led_controller, s_dashboard);
+	s_color_wheel = new poison_picker::animations::color_wheel(s_led_controller, s_dashboard);
 }
 
 void update(unsigned long miliseconds)

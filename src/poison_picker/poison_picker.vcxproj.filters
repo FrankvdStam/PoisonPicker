@@ -15,17 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="color_graph.ino" />
-    <None Include="debug.ino" />
-    <None Include="leds.ino" />
-    <None Include="LICENSE" />
-    <None Include="poison_picker.ino" />
-    <None Include="state.ino" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="GRAPH.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="dashboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -40,5 +29,8 @@
     <ClInclude Include="dashboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="poison_picker.ino" />
   </ItemGroup>
 </Project>

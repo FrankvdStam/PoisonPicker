@@ -1,8 +1,6 @@
 #pragma once
+#include "../rgb.h"
 
-//fwd declaration, arduino ide doesn't let us include fastled.
-//That means it's up to implementors to implement this struct (for each project)
-struct CRGB;
 
 namespace poison_picker {
 	namespace devices {
@@ -21,8 +19,9 @@ namespace poison_picker {
 			{
 			}
 
-			virtual void set_led(unsigned int index, CRGB crgb) = 0;
-			virtual void set_segment(unsigned int index, CRGB crgb) = 0;
+			virtual void set_led(unsigned int index, rgb rgb) = 0;
+			virtual void set_all_leds(rgb rgb) = 0;
+			virtual void set_segment(unsigned int index, rgb rgb) = 0;
 			virtual void set_brightness(int brightness) = 0;
 
 			virtual void clear() = 0;

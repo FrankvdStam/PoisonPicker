@@ -1,7 +1,9 @@
 #include "src/LiquidCrystal/src/LiquidCrystal.h"
 #include "src/pplib/pplib.h"
 
-//Decided against adding this file/directory to additional include dirs, it's easier to find problems this way because you can clearly see that you need the arduino ide for this
+//Arduino headers: you need arduino ide for these
+
+//Need this for analogRead/digitalRead/write
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Arduino.h"
 
 //Button pins
@@ -21,8 +23,8 @@
 #define DISPLAY_WIDTH 20
 #define DISPLAY_HEIGHT 4
 
-//potmeter
-#define POTMETER_PIN 1
+//potmeter (14 is mapped to A0 on Arduino uno)
+#define POTMETER_PIN 14 
 #define POTMETER_SENSITIVITY 10
 
 class dashboard : public poison_picker::devices::i_dashboard

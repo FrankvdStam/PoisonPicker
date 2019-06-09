@@ -123,15 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="color_graph.ino" />
-    <None Include="debug.ino" />
-    <None Include="leds.ino" />
-    <None Include="LICENSE" />
     <None Include="poison_picker.ino" />
-    <None Include="state.ino" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="GRAPH.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dashboard.h" />

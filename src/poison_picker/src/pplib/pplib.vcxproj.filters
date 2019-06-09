@@ -36,12 +36,24 @@
     <ClInclude Include="animations\animations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rgb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="animations\color_wheel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rgb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

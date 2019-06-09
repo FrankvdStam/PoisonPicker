@@ -10,10 +10,15 @@
 class led_controller : public poison_picker::devices::i_led_controller {
 public:
 
+	void test() {
+		CRGB color = CRGB(1, 1, 1);
+	}
+
 	led_controller();
 
-	void set_led(unsigned int index, CRGB crgb);
-	void set_segment(unsigned int index, CRGB crgb);
+	void set_led(unsigned int index, poison_picker::rgb rgb);
+	void set_all_leds(poison_picker::rgb rgb);
+	void set_segment(unsigned int index, poison_picker::rgb rgb);
 
 	void set_brightness(int brightness);
 	void clear();

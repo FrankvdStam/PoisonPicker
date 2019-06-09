@@ -4,18 +4,28 @@ led_controller::led_controller() : i_led_controller(NUMBER_OF_LEDS, NUMBER_OF_SE
 {
 	FastLED.addLeds<WS2812, 6, EOrder::GRB>(leds, NUMBER_OF_LEDS);
 	FastLED.setBrightness(255);
+	FastLED.clear();
 }
 
-void led_controller::set_led(unsigned int index, CRGB crgb)
+void led_controller::set_led(unsigned int index, poison_picker::rgb rgb)
 {
-	leds[index] = crgb;
+	leds[index] = CRGB(rgb.r, rgb.g, rgb.b);
 }
 
-void led_controller::set_segment(unsigned int index, CRGB crgb)
+void led_controller::set_all_leds(poison_picker::rgb rgb)
 {
+	CRGB color = CRGB(rgb.r, rgb.g, rgb.b);
+	for (int i = 0; i < NUMBER_OF_LEDS; i++) {
+		leds[i] = color;
+	}
+}
+
+void led_controller::set_segment(unsigned int index, poison_picker::rgb rgb)
+{
+	CRGB color = CRGB(rgb.r, rgb.g, rgb.b);
 	for (int i = index * NUMBER_OF_LEDS_PER_SEGMENTS; i < (index + 1) * NUMBER_OF_LEDS_PER_SEGMENTS; i++)
 	{
-		leds[i] = crgb;
+		leds[i] = color;
 	}
 }
 

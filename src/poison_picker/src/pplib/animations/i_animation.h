@@ -9,13 +9,13 @@ namespace poison_picker {
 		class i_animation
 		{
 		public:
-			i_animation(devices::i_led_controller* led_controller, devices::i_dashboard* dashboard) : led_controller(led_controller), dashboard(dashboard) {}
+			i_animation(devices::i_led_controller* led_controller, devices::i_dashboard* dashboard) : m_led_controller(led_controller), m_dashboard(dashboard) {}
 
 			virtual void update(unsigned long miliseconds) = 0;
 
 		protected:
-			devices::i_led_controller* led_controller;
-			devices::i_dashboard* dashboard;
+			devices::i_led_controller* m_led_controller;
+			devices::i_dashboard* m_dashboard;
 		};
 	}
 }

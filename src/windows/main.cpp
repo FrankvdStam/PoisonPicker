@@ -1,38 +1,35 @@
 #include <iostream>
 #include <pplib.h>
 
-struct CRGB {
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
+struct rgb {
+	inline rgb(int r, int g, int b) : r(r), g(g), b(b) {}
+
+	int r;
+	int g;
+	int b;
 };
 
-class led_controller : public poison_picker::i_led_controller {
+
+class base {
 public:
-
-	led_controller() : i_led_controller(72, 9, 8){}
-
-	void set_led(unsigned int index, CRGB crgb)  {
-
-	}
-
-	void set_segment(unsigned int index, CRGB crgb) {
-
-	}
-
-	void clear() {
-
-	}
-
-	void show() {
-
-	}
+	virtual void test() = 0;
 };
 
+class derived : public base{
+	void test() {
+		std::cout << "Derived" << std::endl;
+	}
+};
 
 int main(int argc, char** argv)
 {
 	std::cout << "Fucking halfwitt" << std::endl;
-	led_controller led_controller;
-	led_controller.clear();
+	
+
+	rgb a(1, 1, 1);
+	std::cout << a.r;// << std::end;
+
+	base* thing = new derived();
+	thing->test();
+
 }
