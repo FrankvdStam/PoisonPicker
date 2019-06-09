@@ -69,14 +69,21 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\pplib\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(Configuration)\pplib\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\bin\$(Configuration)\pplib\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(Configuration)\pplib\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\poison_picker\src\FastLED;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src\poison_picker\src\FastLED;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -101,7 +108,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\poison_picker\src\FastLED;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\src\poison_picker\src\FastLED;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,12 +132,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="keywords.txt" />
-    <Text Include="readme.txt" />
+    <ClInclude Include="animations\animations.h" />
+    <ClInclude Include="animations\color_wheel.h" />
+    <ClInclude Include="program.h" />
+    <ClInclude Include="devices\i_dashboard.h" />
+    <ClInclude Include="animations\i_animation.h" />
+    <ClInclude Include="devices\i_led_controller.h" />
+    <ClInclude Include="pplib.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="i_led_controller.h" />
-    <ClInclude Include="pplib.h" />
+    <ClCompile Include="animations\color_wheel.cpp" />
+    <ClCompile Include="program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

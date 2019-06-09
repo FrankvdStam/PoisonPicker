@@ -1,5 +1,6 @@
 #include "src/FastLED/FastLED.h"
-#include "src/pplib/test.h"
+#include "src/pplib/pplib.h"
+#include "led_controller.h"
 
 //===============================================================================================================================================
 //Definitions
@@ -75,6 +76,11 @@ void run_timers(){
 //Initialization
 //===============================================================================================================================================
 
+class test{
+public:
+	test(){
+	}
+};
 
 void setup() {
   Serial.begin(9600);
@@ -90,6 +96,26 @@ void setup() {
   pinMode(BUTTON_RANDOM, INPUT_PULLUP);
   pinMode(POTENTIOMETER_BRIGHTNESS, INPUT);
   
+
+
+  test t;
+
+
+  led_controller led_c;
+  led_c.clear();
+  led_c.set_segment(0, CRGB::White);
+  led_c.set_segment(1, CRGB::Red);
+  led_c.show();
+  delay(1000);
+
+
+
+
+
+
+
+
+
   previous_brightness = map(analogRead(POTENTIOMETER_BRIGHTNESS), 0, 900, 0, 255); 
   previous_graph_position = map_analog_read_graph();
   

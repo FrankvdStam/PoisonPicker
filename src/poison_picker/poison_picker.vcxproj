@@ -134,7 +134,12 @@
     <Text Include="GRAPH.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="led_controller.ino" />
+    <ClInclude Include="dashboard.h" />
+    <ClInclude Include="led_controller.cpp" />
+    <ClInclude Include="led_controller.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dashboard.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

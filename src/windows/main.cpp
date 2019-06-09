@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Test.h>
+#include <pplib.h>
 
 struct CRGB {
 	uint8_t r;
@@ -12,15 +12,19 @@ public:
 
 	led_controller() : i_led_controller(72, 9, 8){}
 
-	void set_led(unsigned int index, CRGB& crgb)  {
+	void set_led(unsigned int index, CRGB crgb)  {
 
 	}
 
-	void set_segment(unsigned int index, CRGB& crgb) {
+	void set_segment(unsigned int index, CRGB crgb) {
 
 	}
 
 	void clear() {
+
+	}
+
+	void show() {
 
 	}
 };
@@ -28,7 +32,7 @@ public:
 
 int main(int argc, char** argv)
 {
-	std::cout << "hello nigger" << std::endl;
+	std::cout << "Fucking halfwitt" << std::endl;
 	led_controller led_controller;
 	led_controller.clear();
 }

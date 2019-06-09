@@ -15,15 +15,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="keywords.txt" />
-    <Text Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="i_led_controller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pplib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="animations\color_wheel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="devices\i_dashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="devices\i_led_controller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="program.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animations\i_animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animations\animations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animations\color_wheel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
