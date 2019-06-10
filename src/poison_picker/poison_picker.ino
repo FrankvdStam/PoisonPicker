@@ -8,10 +8,26 @@ int max = 0;
 
 animator* m_animator;
 
-//Defines debug.h get_serial(). Allows Serial println's inside pplib
-HardwareSerial* get_serial(){
-	return &Serial;
-}
+class serial_logger : public i_logger
+{
+public:
+	serial_logger() : i_logger(){}
+
+	void print(const char* str) 
+	{ 
+		Serial.print(str);
+	}
+
+	void print(int i) 
+	{ 
+		Serial.print(i);
+	}
+
+	void print(unsigned long i) 
+	{ 
+		Serial.print(i);
+	}
+};
 
 void calibrate_potmeter()
 {
@@ -47,14 +63,24 @@ void setup()
 
 	//calibrate_potmeter();
 
+	i_logger::set(new serial_logger());
+	if (i_logger::available()) {
+		i_logger& logger = i_logger::get();
+		logger.print("logger initialized");
+	}
+
+	//i_logger* logger = new serial_logger();
+	//debug::set_logger(logger);
+
 	i_led_controller*	m_led_controller	= new led_controller();
 	i_dashboard*		m_dashboard			= new dashboard();
 
-	i_animation** animations = new i_animation*[1];
+	i_animation** animations = new i_animation*[3];
 	animations[0] = new color_wheel(m_led_controller, m_dashboard);
-	animations[1] = new brightness(m_led_controller, m_dashboard);
+	animations[1] = new flow(m_led_controller, m_dashboard);
+	animations[2] = new brightness(m_led_controller, m_dashboard);
 
-	m_animator = new animator(m_led_controller, m_dashboard, animations, 2);
+	m_animator = new animator(m_led_controller, m_dashboard, animations, 3);
 }
 
 

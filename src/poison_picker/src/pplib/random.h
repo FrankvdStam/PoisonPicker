@@ -1,0 +1,1 @@
+long random(long min, long max);

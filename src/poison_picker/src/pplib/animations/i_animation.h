@@ -4,6 +4,7 @@
 
 using poison_picker::devices::i_led_controller;
 using poison_picker::devices::i_dashboard;
+using poison_picker::rgb;
 
 namespace poison_picker {
 	namespace animations

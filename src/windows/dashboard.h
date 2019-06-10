@@ -7,7 +7,7 @@ class dashboard : public i_dashboard
 public:
 
 	//Update every cycle so that locks and the like on buttons can be reset
-	void update() {}
+	void update(unsigned long milliseconds) {}
 
 	//This button is in a 3D-printen case with a spring
 	//The button is activated by inserting and turning a key

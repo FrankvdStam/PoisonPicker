@@ -19,24 +19,24 @@ namespace poison_picker
 		delete[] m_animations;
 	}
 	
-	void animator::update(unsigned long miliseconds)
+	void animator::update(unsigned long milliseconds)
 	{
 		//get_serial()->println("update in animator");
 
-		m_dashboard->update();
+		m_dashboard->update(milliseconds);
 		if (m_dashboard->button_pressed_toggle_state() && m_can_toggle_animation)
 		{
 			m_can_toggle_animation = false;
 
 			
-			m_animations[m_current_animation]->deactivate(miliseconds);
+			m_animations[m_current_animation]->deactivate(milliseconds);
 			m_current_animation++;
 			
 			if (m_current_animation >= m_animations_size)
 			{
 				m_current_animation = 0;
 			}
-			m_animations[m_current_animation]->activate(miliseconds);
+			m_animations[m_current_animation]->activate(milliseconds);
 		}
 
 		if (!m_dashboard->button_pressed_toggle_state()) 
@@ -44,6 +44,6 @@ namespace poison_picker
 			m_can_toggle_animation = true;
 		}
 
-		m_animations[m_current_animation]->update(miliseconds);
+		m_animations[m_current_animation]->update(milliseconds);
 	}
 }

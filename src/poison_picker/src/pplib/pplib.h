@@ -16,12 +16,20 @@ using poison_picker::rgb;
 
 //premade animations
 #include "animations/color_wheel.h"
+#include "animations/flow.h"
 #include "animations/brightness.h"
 
+
 using poison_picker::animations::color_wheel;
+using poison_picker::animations::flow;
 using poison_picker::animations::brightness;
 
 //animator to tie things together
 #include "animator.h"
 
 using poison_picker::animator;
+
+//debug printing
+#include "debug.h"
+
+using poison_picker::i_logger;

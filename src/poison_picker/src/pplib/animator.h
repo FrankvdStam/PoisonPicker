@@ -15,7 +15,7 @@ namespace poison_picker
 	public:
 		animator(i_led_controller* led_controller, i_dashboard* dashboard, i_animation** animations, unsigned int size);
 		~animator();
-		void update(unsigned long miliseconds);
+		void update(unsigned long milliseconds);
 
 	private:
 		i_led_controller* m_led_controller;

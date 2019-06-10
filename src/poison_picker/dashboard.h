@@ -10,6 +10,7 @@
 #define BUTTON_PIN_KEY			6
 #define BUTTON_PIN_TOGGLE_STATE 7
 #define BUTTON_PIN_RANDOMIZE	8
+#define BUTTON_DEBOUNCE_DELAY   50
 
 //Display pins
 #define DISPLAY_PIN_RS 12
@@ -33,7 +34,7 @@ public:
 	dashboard();
 
 	//Update every cycle so that locks and the like on buttons can be reset
-	void update();
+	void update(unsigned long milliseconds);
 
 
 	//This button is in a 3D-printen case with a spring
@@ -62,7 +63,9 @@ private:
 	bool can_toggle_key = true;
 
 	bool toggle_state = false;
+	bool toggle_state_previous = false;
 	bool can_toggle_state = true;
+	unsigned long toggle_state_debounce_time = 0;
 
 	bool randomize = false;
 	bool can_toggle_randomize = true;

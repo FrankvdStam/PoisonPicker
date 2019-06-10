@@ -138,6 +138,7 @@
     <ClInclude Include="debug.h" />
     <ClInclude Include="animations\flow.h" />
     <ClInclude Include="helper.h" />
+    <ClInclude Include="random.h" />
     <ClInclude Include="rgb.h" />
     <ClInclude Include="animator.h" />
     <ClInclude Include="devices\i_dashboard.h" />
@@ -149,8 +150,8 @@
     <ClCompile Include="animations\color_wheel.cpp" />
     <ClCompile Include="animations\flow.cpp" />
     <ClCompile Include="animations\brightness.cpp" />
+    <ClCompile Include="debug.cpp" />
     <ClCompile Include="helper.cpp" />
-    <ClCompile Include="rgb.cpp" />
     <ClCompile Include="animator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,7 +9,7 @@ public:
 	void set_led(unsigned int index, rgb rgb) {}
 	void set_all_leds(rgb rgb) {}
 	void set_segment(unsigned int index, rgb rgb) {}
-	void set_brightness(int brightness) {}
+	void set_brightness(unsigned char brightness) {}
 
 	void clear() {}
 	void show() {}

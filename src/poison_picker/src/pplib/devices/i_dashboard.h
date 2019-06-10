@@ -9,7 +9,7 @@ namespace poison_picker
 		{
 		public:
 			//Update every cycle so that locks and the like on buttons can be reset
-			virtual void update() = 0;
+			virtual void update(unsigned long milliseconds) = 0;
 
 			//This button is in a 3D-printen case with a spring
 			//The button is activated by inserting and turning a key

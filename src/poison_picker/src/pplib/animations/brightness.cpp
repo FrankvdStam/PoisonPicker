@@ -28,10 +28,12 @@ namespace poison_picker {
 				if (bri > 255) {
 					bri = 255;
 				}
-
-				HardwareSerial* serial = get_serial();
-				serial->print(bri);
-				serial->print('\n');
+				/*
+				if (i_logger::available()) {
+					i_logger& logger = i_logger::get();
+					logger.print(bri);
+					logger.print('\n');
+				}*/
 
 				m_led_controller->set_brightness(bri);
 				m_led_controller->show();

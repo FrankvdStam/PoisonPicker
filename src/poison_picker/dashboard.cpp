@@ -13,7 +13,7 @@ dashboard::dashboard()
 }
 
 //Update every cycle so that locks and the like on buttons can be reset
-void dashboard::update()
+void dashboard::update(unsigned long milliseconds)
 {
 	//buttons are pullup up, default high, low-activated. Flip it around here right away for easy of mind.
 	bool button_value = !digitalRead(BUTTON_PIN_KEY);
@@ -27,9 +27,26 @@ void dashboard::update()
 	if (!button_value) {
 		can_toggle_key = true;
 	}
+			   
+	//Debounce toggle_state
+	button_value = !digitalRead(BUTTON_PIN_TOGGLE_STATE);
+
+	if (button_value != toggle_state_previous)
+	{
+		toggle_state_debounce_time = milliseconds;
+
+		
+	}
+
+	if (milliseconds - toggle_state_debounce_time > BUTTON_DEBOUNCE_DELAY)
+	{
+		toggle_state = button_value;
+	}
+	
+	toggle_state_previous = button_value;
 
 	//The other buttons are direct
-	toggle_state	= !digitalRead(BUTTON_PIN_TOGGLE_STATE);
+	//toggle_state	= !digitalRead(BUTTON_PIN_TOGGLE_STATE);
 	randomize		= !digitalRead(BUTTON_PIN_RANDOMIZE);
 
 	//debounce potmeter to reduce flickering
@@ -53,8 +70,11 @@ void dashboard::display_clear()
 	lcd->clear();
 }
 	
-void dashboard::display_write(const char* string) {
-	Serial.write(string);
+void dashboard::display_write(const char* string) 
+{
+	if (i_logger::available()) {
+		i_logger::get().print(string);
+	}
 	lcd->write(string);
 }
 

@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dashboard.h" />
+    <ClInclude Include="debug.h" />
     <ClInclude Include="led_controller.h" />
   </ItemGroup>
   <ItemGroup>

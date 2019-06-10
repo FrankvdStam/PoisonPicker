@@ -26,7 +26,10 @@ namespace poison_picker {
 
 			virtual void clear() = 0;
 			virtual void show() = 0;
-
+			
+			unsigned int get_number_of_leds() { return m_number_of_leds; }
+			unsigned int get_number_of_segments() { return m_number_of_segments; }
+			unsigned int get_number_of_leds_per_segment() { return m_number_of_leds_per_segment; }
 		protected:
 			unsigned int m_number_of_leds;
 			unsigned int m_number_of_segments;

@@ -1,24 +1,31 @@
 #pragma once
 
+namespace poison_picker
+{
+	/*
+	usage:
 
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h"
-HardwareSerial* get_serial();
+	if (i_logger::available())
+	{
+		i_logger::get().print("toggle_state: ");
+		i_logger::get().print(toggle_state);
+		i_logger::get().print("\n");
+	}
+	*/
 
+	class i_logger
+	{
+	public:
+		i_logger();
 
-/*
-#include <iostream>
-using std::cout;
-using std::endl;
-class HardwareSerial {
-public:
-	void print(const char* str) { cout << str << endl; }
-	void println(const char* str) { cout << str << endl; }
+		static void set(i_logger* instance);
+		static i_logger& get();
+		static bool available();
 
-	void print(int i) { cout << i << endl; }
-	void println(char c) { cout << c << endl; }
-};
-
-HardwareSerial* get_serial() {
-	return new HardwareSerial();
+		virtual void print(const char* str) = 0;
+		virtual void print(int i) = 0;
+		virtual void print(unsigned long i) = 0;
+	private:
+		static i_logger* s_instance;
+	};	
 }
-*/
