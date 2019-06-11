@@ -1,5 +1,5 @@
 #include "flow.h"
-#include "../debug.h"
+#include "../i_logger.h"
 
 namespace poison_picker
 {
@@ -17,7 +17,7 @@ namespace poison_picker
 		void flow::activate(unsigned long milliseconds)
 		{
 			m_dashboard->display_clear();
-			m_dashboard->display_write("flow\n");
+			m_dashboard->display_write("flow");
 
 
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {

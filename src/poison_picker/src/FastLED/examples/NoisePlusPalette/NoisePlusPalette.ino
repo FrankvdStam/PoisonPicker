@@ -1,12 +1,12 @@
 #include <FastLED.h>
 
-#define LED_PIN     3
+#define LED_PIN     10
 #define BRIGHTNESS  96
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
 
-const uint8_t kMatrixWidth  = 16;
-const uint8_t kMatrixHeight = 16;
+const uint8_t kMatrixWidth  = 24;
+const uint8_t kMatrixHeight = 3;
 const bool    kMatrixSerpentineLayout = true;
 
 
@@ -270,4 +270,3 @@ uint16_t XY( uint8_t x, uint8_t y)
   }
   return i;
 }
-

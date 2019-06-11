@@ -1,5 +1,5 @@
 #include "color_wheel.h"
-#include "../debug.h"
+#include "../i_logger.h"
 
 namespace poison_picker {
 	namespace animations
@@ -10,7 +10,7 @@ namespace poison_picker {
 		void color_wheel::activate(unsigned long miliseconds)
 		{
 			m_dashboard->display_clear();
-			m_dashboard->display_write("Color wheel\n");
+			m_dashboard->display_write("Color wheel");
 		}
 
 		void color_wheel::update(unsigned long miliseconds) 
@@ -21,7 +21,7 @@ namespace poison_picker {
 			if (potmeter_value != m_potmeter_previous_value) 
 			{
 				m_potmeter_previous_value = potmeter_value;
-				int position = helper::numeric_map(potmeter_value, 20, 925, MIN_MAP_GRAPH, MAX_MAP_GRAPH);
+				int position = helper::numeric_map(potmeter_value, 0, 1023, MIN_MAP_GRAPH, MAX_MAP_GRAPH);
 
 				rgb color = get_color_from_graph(position);
 

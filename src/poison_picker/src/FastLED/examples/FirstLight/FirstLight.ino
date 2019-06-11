@@ -12,10 +12,10 @@
 // 
 
 // How many leds are in the strip?
-#define NUM_LEDS 60
+#define NUM_LEDS 72
 
 // Data pin that led data will be written out over
-#define DATA_PIN 3
+#define DATA_PIN 10
 
 // Clock pin only needed for SPI based chipsets when not using hardware SPI
 //#define CLOCK_PIN 8

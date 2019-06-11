@@ -1,9 +1,9 @@
 #include <FastLED.h>
 
-#define LED_PIN  3
+#define LED_PIN  10
 
 #define COLOR_ORDER GRB
-#define CHIPSET     WS2811
+#define CHIPSET     WS2812
 
 #define BRIGHTNESS 64
 
@@ -25,8 +25,8 @@
 
 
 // Params for width and height
-const uint8_t kMatrixWidth = 16;
-const uint8_t kMatrixHeight = 16;
+const uint8_t kMatrixWidth = 24;
+const uint8_t kMatrixHeight = 3;
 
 // Param for different pixel layouts
 const bool    kMatrixSerpentineLayout = true;

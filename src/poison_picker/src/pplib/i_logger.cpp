@@ -1,4 +1,4 @@
-#include "debug.h"
+#include "i_logger.h"
 
 namespace poison_picker
 {

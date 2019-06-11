@@ -1,9 +1,9 @@
 #include <FastLED.h>
 
-#define LED_PIN     5
+#define LED_PIN     10
 #define COLOR_ORDER GRB
-#define CHIPSET     WS2811
-#define NUM_LEDS    30
+#define CHIPSET     WS2812
+#define NUM_LEDS    72
 
 #define BRIGHTNESS  200
 #define FRAMES_PER_SECOND 60
@@ -102,4 +102,3 @@ void Fire2012()
       leds[pixelnumber] = color;
     }
 }
-

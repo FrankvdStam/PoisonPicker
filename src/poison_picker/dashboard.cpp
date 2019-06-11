@@ -74,8 +74,18 @@ void dashboard::display_write(const char* string)
 {
 	if (i_logger::available()) {
 		i_logger::get().print(string);
+		i_logger::get().print("\n");
 	}
 	lcd->write(string);
+}
+
+void dashboard::display_write(const int i)
+{
+	if (i_logger::available()) {
+		i_logger::get().print(i);
+		i_logger::get().print("\n");
+	}
+	lcd->write(i);
 }
 
 void dashboard::display_set_cursor(int x, int y) {

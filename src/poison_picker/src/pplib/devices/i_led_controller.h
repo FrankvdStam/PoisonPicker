@@ -22,7 +22,7 @@ namespace poison_picker {
 			virtual void set_led(unsigned int index, rgb rgb) = 0;
 			virtual void set_all_leds(rgb rgb) = 0;
 			virtual void set_segment(unsigned int index, rgb rgb) = 0;
-			virtual void set_brightness(unsigned char brightness) = 0;
+			virtual void set_brightness(int brightness) = 0;
 
 			virtual void clear() = 0;
 			virtual void show() = 0;

@@ -135,7 +135,7 @@
     <ClInclude Include="animations\animations.h" />
     <ClInclude Include="animations\color_wheel.h" />
     <ClInclude Include="animations\brightness.h" />
-    <ClInclude Include="debug.h" />
+    <ClInclude Include="i_logger.h" />
     <ClInclude Include="animations\flow.h" />
     <ClInclude Include="helper.h" />
     <ClInclude Include="random.h" />
@@ -150,7 +150,7 @@
     <ClCompile Include="animations\color_wheel.cpp" />
     <ClCompile Include="animations\flow.cpp" />
     <ClCompile Include="animations\brightness.cpp" />
-    <ClCompile Include="debug.cpp" />
+    <ClCompile Include="i_logger.cpp" />
     <ClCompile Include="helper.cpp" />
     <ClCompile Include="animator.cpp" />
   </ItemGroup>

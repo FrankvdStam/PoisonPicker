@@ -16,7 +16,7 @@ public:
 	void set_all_leds(poison_picker::rgb rgb);
 	void set_segment(unsigned int index, poison_picker::rgb rgb);
 
-	void set_brightness(unsigned char brightness);
+	void set_brightness(int brightness);
 	void clear();
 	void show();
 

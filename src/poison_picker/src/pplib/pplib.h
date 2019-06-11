@@ -30,6 +30,6 @@ using poison_picker::animations::brightness;
 using poison_picker::animator;
 
 //debug printing
-#include "debug.h"
+#include "i_logger.h"
 
 using poison_picker::i_logger;

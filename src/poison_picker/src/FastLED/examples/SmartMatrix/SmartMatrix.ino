@@ -1,9 +1,25 @@
-#include <SmartMatrix.h>
+#include <CircularBuffer.h>
+#include <Layer.h>
+#include <Layer_Background.h>
+#include <Layer_Background_Impl.h>
+#include <Layer_Indexed.h>
+#include <Layer_Indexed_Impl.h>
+#include <Layer_Scrolling.h>
+#include <Layer_Scrolling_Impl.h>
+#include <MatrixCommon.h>
+#include <MatrixFontCommon.h>
+#include <MatrixHardware_KitV1.h>
+#include <MatrixHardware_KitV4.h>
+#include <SmartLEDShieldV4.h>
+#include <SmartMatrix3.h>
+#include <SmartMatrix_Impl.h>
+
+//#include <SmartMatrix.h>
 #include <FastLED.h>
 
-#define kMatrixWidth  32
-#define kMatrixHeight 32
-const bool    kMatrixSerpentineLayout = false;
+#define kMatrixWidth  24
+#define kMatrixHeight 3
+const bool    kMatrixSerpentineLayout = true;
 
 #define NUM_LEDS (kMatrixWidth * kMatrixHeight)
 

@@ -27,10 +27,17 @@ public:
 	{ 
 		Serial.print(i);
 	}
+
+	void print(unsigned char i)
+	{
+		Serial.print(i);
+	}
 };
 
 void calibrate_potmeter()
 {
+	Serial.println("Calibrating potmeter.");
+
 	int pot_min = 1024;
 	int pot_max = 0;
 
@@ -58,6 +65,8 @@ void calibrate_potmeter()
 
 void setup() 
 {
+	tone(13, 220, 200);
+
 	Serial.begin(9600);
 	Serial.println("Starting.");
 
