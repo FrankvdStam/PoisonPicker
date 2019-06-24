@@ -1,0 +1,5 @@
+I'm using the arduino IDE to build and upload to arduino.
+The arduino IDE is verry picky about how to structure your code.
+Libraries must be in the src directory to be picked up.
+Therefore, the premake file, gmake/vs solution files, etc.
+are all a bit messy..
