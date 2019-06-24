@@ -76,7 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\pplib.h" />
+    <ClInclude Include="include\pplib\pplib.h" />
     <ClInclude Include="src\animations\animations.h" />
     <ClInclude Include="src\animations\brightness.h" />
     <ClInclude Include="src\animations\color_wheel.h" />

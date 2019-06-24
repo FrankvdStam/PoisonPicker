@@ -97,9 +97,11 @@
   <ItemGroup>
     <ClInclude Include="src\dashboard.h" />
     <ClInclude Include="src\debug.h" />
+    <ClInclude Include="src\graphics\renderer.h" />
     <ClInclude Include="src\led_controller.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

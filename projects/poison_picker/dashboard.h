@@ -1,5 +1,5 @@
 #include "src/LiquidCrystal/src/LiquidCrystal.h"
-#include "src/pplib/src/pplib.h"
+#include "src/pplib/include/pplib/pplib.h"
 
 //Arduino headers: you need arduino ide for these
 

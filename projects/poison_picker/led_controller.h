@@ -1,5 +1,5 @@
 #pragma once
-#include "src/pplib/src/pplib.h"
+#include "src/pplib/include/pplib/pplib.h"
 #include "src/FastLED/FastLED.h"
 #include "src/FastLED/pixeltypes.h"
 

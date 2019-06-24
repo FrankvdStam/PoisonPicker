@@ -1,6 +1,6 @@
 #include "led_controller.h"
 #include "dashboard.h"
-#include "src/pplib/src/pplib.h"
+#include "src/pplib/include/pplib/pplib.h"
 
 int min = 1000;
 int max = 0;

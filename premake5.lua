@@ -13,10 +13,14 @@ group "graphics"
 	include "projects/simulator/libraries/glad/"
 	include "projects/simulator/libraries/imgui/"
 	
-group ""
+group "desktop"
 	include "projects/cli/"
 	include "projects/simulator/"
+
+group "arduino"
 	include "projects/poison_picker/"
+
+group ""
 	include "projects/poison_picker/src/pplib/"
 
 --project "monitor"
