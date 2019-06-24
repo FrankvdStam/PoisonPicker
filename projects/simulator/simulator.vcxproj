@@ -112,7 +112,7 @@
     <ProjectReference Include="libraries\imgui\imgui.vcxproj">
       <Project>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\poison_picker\src\pplib\pplib\pplib.vcxproj">
+    <ProjectReference Include="..\poison_picker\src\pplib\pplib.vcxproj">
       <Project>{5CFC2810-C810-51C1-9192-F420FD654DF2}</Project>
     </ProjectReference>
   </ItemGroup>

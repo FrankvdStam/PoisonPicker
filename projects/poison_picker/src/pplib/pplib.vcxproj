@@ -40,14 +40,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\bin\Debug-windows-\pplib\</OutDir>
-    <IntDir>..\obj\Debug-windows-\pplib\</IntDir>
+    <OutDir>bin\Debug-windows-\pplib\</OutDir>
+    <IntDir>obj\Debug-windows-\pplib\</IntDir>
     <TargetName>pplib</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\bin\Release-windows-\pplib\</OutDir>
-    <IntDir>..\obj\Release-windows-\pplib\</IntDir>
+    <OutDir>bin\Release-windows-\pplib\</OutDir>
+    <IntDir>obj\Release-windows-\pplib\</IntDir>
     <TargetName>pplib</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
@@ -55,8 +55,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/MTd %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -66,35 +67,36 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/MT %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\pplib.h" />
-    <ClInclude Include="..\src\animations\animations.h" />
-    <ClInclude Include="..\src\animations\brightness.h" />
-    <ClInclude Include="..\src\animations\color_wheel.h" />
-    <ClInclude Include="..\src\animations\flow.h" />
-    <ClInclude Include="..\src\animations\i_animation.h" />
-    <ClInclude Include="..\src\animator.h" />
-    <ClInclude Include="..\src\devices\i_dashboard.h" />
-    <ClInclude Include="..\src\devices\i_led_controller.h" />
-    <ClInclude Include="..\src\helper.h" />
-    <ClInclude Include="..\src\i_logger.h" />
-    <ClInclude Include="..\src\random.h" />
-    <ClInclude Include="..\src\rgb.h" />
+    <ClInclude Include="include\pplib.h" />
+    <ClInclude Include="src\animations\animations.h" />
+    <ClInclude Include="src\animations\brightness.h" />
+    <ClInclude Include="src\animations\color_wheel.h" />
+    <ClInclude Include="src\animations\flow.h" />
+    <ClInclude Include="src\animations\i_animation.h" />
+    <ClInclude Include="src\animator.h" />
+    <ClInclude Include="src\devices\i_dashboard.h" />
+    <ClInclude Include="src\devices\i_led_controller.h" />
+    <ClInclude Include="src\helper.h" />
+    <ClInclude Include="src\i_logger.h" />
+    <ClInclude Include="src\random.h" />
+    <ClInclude Include="src\rgb.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\animations\brightness.cpp" />
-    <ClCompile Include="..\src\animations\color_wheel.cpp" />
-    <ClCompile Include="..\src\animations\flow.cpp" />
-    <ClCompile Include="..\src\animator.cpp" />
-    <ClCompile Include="..\src\helper.cpp" />
-    <ClCompile Include="..\src\i_logger.cpp" />
+    <ClCompile Include="src\animations\brightness.cpp" />
+    <ClCompile Include="src\animations\color_wheel.cpp" />
+    <ClCompile Include="src\animations\flow.cpp" />
+    <ClCompile Include="src\animator.cpp" />
+    <ClCompile Include="src\helper.cpp" />
+    <ClCompile Include="src\i_logger.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

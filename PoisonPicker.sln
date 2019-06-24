@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imgui", "projects\simulator
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "poison_picker", "projects\poison_picker\poison_picker.vcxproj", "{5A79DB87-C639-57BE-8F74-A03BFBF39B9A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pplib", "projects\poison_picker\src\pplib\pplib\pplib.vcxproj", "{5CFC2810-C810-51C1-9192-F420FD654DF2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pplib", "projects\poison_picker\src\pplib\pplib.vcxproj", "{5CFC2810-C810-51C1-9192-F420FD654DF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,63 +15,63 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\pplib.h">
+    <ClInclude Include="include\pplib.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\animations\animations.h">
+    <ClInclude Include="src\animations\animations.h">
       <Filter>src\animations</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\animations\brightness.h">
+    <ClInclude Include="src\animations\brightness.h">
       <Filter>src\animations</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\animations\color_wheel.h">
+    <ClInclude Include="src\animations\color_wheel.h">
       <Filter>src\animations</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\animations\flow.h">
+    <ClInclude Include="src\animations\flow.h">
       <Filter>src\animations</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\animations\i_animation.h">
+    <ClInclude Include="src\animations\i_animation.h">
       <Filter>src\animations</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\animator.h">
+    <ClInclude Include="src\animator.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\devices\i_dashboard.h">
+    <ClInclude Include="src\devices\i_dashboard.h">
       <Filter>src\devices</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\devices\i_led_controller.h">
+    <ClInclude Include="src\devices\i_led_controller.h">
       <Filter>src\devices</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\helper.h">
+    <ClInclude Include="src\helper.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\i_logger.h">
+    <ClInclude Include="src\i_logger.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\random.h">
+    <ClInclude Include="src\random.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\rgb.h">
+    <ClInclude Include="src\rgb.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\animations\brightness.cpp">
+    <ClCompile Include="src\animations\brightness.cpp">
       <Filter>src\animations</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\animations\color_wheel.cpp">
+    <ClCompile Include="src\animations\color_wheel.cpp">
       <Filter>src\animations</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\animations\flow.cpp">
+    <ClCompile Include="src\animations\flow.cpp">
       <Filter>src\animations</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\animator.cpp">
+    <ClCompile Include="src\animator.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\helper.cpp">
+    <ClCompile Include="src\helper.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\i_logger.cpp">
+    <ClCompile Include="src\i_logger.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

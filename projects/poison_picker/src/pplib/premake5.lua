@@ -1,5 +1,4 @@
 project "pplib"
-	location "pplib"
 	kind "StaticLib"
 	language "C++"
 
@@ -19,4 +18,8 @@ project "pplib"
 		"include/",
 	}
 	
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+	filter {"system:windows", "configurations:Debug"}
+		buildoptions "/MTd"
+		
+	filter {"system:windows", "configurations:Release"}
+		buildoptions "/MT"
