@@ -1,7 +1,9 @@
 #include <iostream>
-#include <pplib.h>
+
+#include "pplib/pplib.h"
 #include "led_controller.h"
 #include "dashboard.h"
+#include "graphics/renderer.h"
 
 
 //To be implemented by a client
@@ -38,6 +40,15 @@ public:
 
 int main(int argc, char** argv)
 {
+	renderer r;
+
+
+	while(true)
+	{
+		r.poll_events();
+		r.draw();
+	}
+
 	i_logger::set(new cout_logger());
 	if (i_logger::available()) {
 		i_logger& logger = i_logger::get();

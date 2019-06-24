@@ -8,12 +8,24 @@
   <ItemGroup>
     <ClInclude Include="src\dashboard.h" />
     <ClInclude Include="src\debug.h" />
+    <ClInclude Include="src\graphics\imgui_impl_glfw.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\imgui_impl_opengl2.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
     <ClInclude Include="src\graphics\renderer.h">
       <Filter>graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\led_controller.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\imgui_impl_glfw.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\imgui_impl_opengl2.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
     <ClCompile Include="src\graphics\renderer.cpp">
       <Filter>graphics</Filter>
     </ClCompile>

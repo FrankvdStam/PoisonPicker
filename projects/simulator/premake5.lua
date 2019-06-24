@@ -13,11 +13,11 @@ project "simulator"
 
 	includedirs
 	{
-		"%{prj.name}/src",
-		"simulator/libraries/glfw/include",
-		"simulator/libraries/glad/include",
-		"simulator/libraries/imgui",
-		"../poison_picker/src/pplib/include",
+		"%{prj.name}/src/",
+		"libraries/glad/include/",
+		"libraries/glfw/include/",		
+		"libraries/imgui/",
+		"../poison_picker/src/pplib/include/",
 	}
 	
 	links
