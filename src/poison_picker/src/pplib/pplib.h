@@ -18,11 +18,13 @@ using poison_picker::rgb;
 #include "animations/color_wheel.h"
 #include "animations/flow.h"
 #include "animations/brightness.h"
+#include "animations/rinald.h"
 
 
 using poison_picker::animations::color_wheel;
 using poison_picker::animations::flow;
 using poison_picker::animations::brightness;
+using poison_picker::animations::rinald;
 
 //animator to tie things together
 #include "animator.h"

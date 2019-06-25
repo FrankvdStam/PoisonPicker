@@ -3,6 +3,8 @@
 #include "src/pplib/pplib.h"
 #include "src/pplib/animations/color_wheel.h"
 
+#include "src/pplib/helper.h"
+
 int min = 1000;
 int max = 0;
 
@@ -65,8 +67,6 @@ void calibrate_potmeter()
 
 void setup() 
 {
-	tone(13, 220, 200);
-
 	Serial.begin(9600);
 	Serial.println("Starting.");
 
@@ -78,18 +78,22 @@ void setup()
 		logger.print("logger initialized");
 	}
 
+	poison_picker::helper::amount_of_digits(123);
+
+
 	//i_logger* logger = new serial_logger();
 	//debug::set_logger(logger);
 
 	i_led_controller*	m_led_controller	= new led_controller();
 	i_dashboard*		m_dashboard			= new dashboard();
 
-	i_animation** animations = new i_animation*[3];
+	i_animation** animations = new i_animation*[4];
 	animations[0] = new color_wheel(m_led_controller, m_dashboard);
 	animations[1] = new flow(m_led_controller, m_dashboard);
 	animations[2] = new brightness(m_led_controller, m_dashboard);
+	animations[3] = new rinald(m_led_controller, m_dashboard);
 
-	m_animator = new animator(m_led_controller, m_dashboard, animations, 3);
+	m_animator = new animator(m_led_controller, m_dashboard, animations, 4);
 }
 
 

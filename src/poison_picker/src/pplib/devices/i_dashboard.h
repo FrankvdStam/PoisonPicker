@@ -28,7 +28,7 @@ namespace poison_picker
 			//methods to control the display
 			virtual void display_clear() = 0;
 			virtual void display_write(const char* string) = 0;
-			virtual void display_write(const int i) = 0;
+			virtual void display_write(unsigned char i) = 0;
 			virtual void display_set_cursor(int x, int y) = 0;
 		};
 	}

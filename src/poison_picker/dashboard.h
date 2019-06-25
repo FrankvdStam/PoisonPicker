@@ -54,7 +54,7 @@ public:
 	//methods to control the display
 	void display_clear();
 	void display_write(const char* string);
-	void display_write(const int i);
+	void display_write(unsigned char i);
 	void display_set_cursor(int x, int y);
 
 private:

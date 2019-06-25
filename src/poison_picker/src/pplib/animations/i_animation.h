@@ -1,6 +1,7 @@
 #pragma once
 #include "../devices/i_led_controller.h"
 #include "../devices/i_dashboard.h"
+#include "../helper.h"
 
 using poison_picker::devices::i_led_controller;
 using poison_picker::devices::i_dashboard;

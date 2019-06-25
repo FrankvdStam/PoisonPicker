@@ -54,6 +54,9 @@
     <ClInclude Include="i_logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="animations\rinald.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animations\color_wheel.cpp">
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="i_logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animations\rinald.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

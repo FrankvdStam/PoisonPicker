@@ -31,9 +31,6 @@ void led_controller::set_segment(unsigned int index, poison_picker::rgb rgb)
 
 void led_controller::set_brightness(int brightness)
 {
-	i_logger::get().print("Setting brightness in led_controller.cpp: ");
-	i_logger::get().print(brightness);
-	i_logger::get().print("\n");
 	FastLED.setBrightness(brightness);
 }
 

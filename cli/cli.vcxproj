@@ -20,13 +20,13 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{53F487D8-FDC2-45FD-B7F7-AECE308E0E5C}</ProjectGuid>
-    <RootNamespace>pplib</RootNamespace>
+    <ProjectGuid>{EDD3C957-AB52-470C-AF1B-AE023A8C3875}</ProjectGuid>
+    <RootNamespace>cli</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -69,21 +69,13 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\pplib\</OutDir>
-    <IntDir>$(SolutionDir)\obj\$(Configuration)\pplib\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\pplib\</OutDir>
-    <IntDir>$(SolutionDir)\obj\$(Configuration)\pplib\</IntDir>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\poison_picker\src\FastLED;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,7 +100,6 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\src\poison_picker\src\FastLED;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,29 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="animations\animations.h" />
-    <ClInclude Include="animations\color_wheel.h" />
-    <ClInclude Include="animations\brightness.h" />
-    <ClInclude Include="i_logger.h" />
-    <ClInclude Include="animations\flow.h" />
-    <ClInclude Include="helper.h" />
-    <ClInclude Include="random.h" />
-    <ClInclude Include="rgb.h" />
-    <ClInclude Include="animator.h" />
-    <ClInclude Include="devices\i_dashboard.h" />
-    <ClInclude Include="animations\i_animation.h" />
-    <ClInclude Include="devices\i_led_controller.h" />
-    <ClInclude Include="pplib.h" />
-    <ClInclude Include="animations\rinald.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="animations\color_wheel.cpp" />
-    <ClCompile Include="animations\flow.cpp" />
-    <ClCompile Include="animations\brightness.cpp" />
-    <ClCompile Include="i_logger.cpp" />
-    <ClCompile Include="helper.cpp" />
-    <ClCompile Include="animator.cpp" />
-    <ClCompile Include="animations\rinald.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

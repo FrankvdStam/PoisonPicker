@@ -1,6 +1,5 @@
 #include "brightness.h"
 #include "../i_logger.h"
-#include <Arduino.h>
 
 namespace poison_picker {
 	namespace animations
@@ -24,16 +23,16 @@ namespace poison_picker {
 			if (potmeter_value != m_potmeter_previous_value)
 			{
 				m_potmeter_previous_value = potmeter_value;
-				int bri = helper::numeric_map(potmeter_value, 0, 1023, 0, 255);
+				int brightness = helper::numeric_map(potmeter_value, 0, 1023, 0, 255);
 				
 				//Display the brightness on the display, removing the previous iteration
 				m_dashboard->display_set_cursor(7, 1);
-				m_dashboard->display_write("     ");//erase previous data
-				
-				String str = String(bri);				
-				m_dashboard->display_set_cursor(10 - str.length(), 1);
-				m_dashboard->display_write(str.begin());
-				m_led_controller->set_brightness(bri);
+				m_dashboard->display_write("     ");
+				int digits = helper::amount_of_digits(brightness);
+				m_dashboard->display_set_cursor(10 - digits, 1);
+				m_dashboard->display_write(brightness);
+
+				m_led_controller->set_brightness(brightness);
 				m_led_controller->show();
 			}
 		}

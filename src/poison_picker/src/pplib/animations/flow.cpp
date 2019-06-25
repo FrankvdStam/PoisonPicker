@@ -28,7 +28,7 @@ namespace poison_picker
 
 		void flow::update(unsigned long milliseconds) 
 		{
-			for (int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
+			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
 				if (m_current_colors[i] == m_random_colors[i]) {
 					m_random_colors[i] = get_random_rgb();
 				}
@@ -67,7 +67,7 @@ namespace poison_picker
 
 		rgb flow::get_random_rgb() 
 		{
-			return rgb(random(0, 256), random(0, 256), random(0, 256));
+			return rgb((unsigned char)random(0, 256), (unsigned char)random(0, 256), (unsigned char)random(0, 256));
 		}
 	}
 }
