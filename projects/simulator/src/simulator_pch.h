@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+#include <math.h>
 
 #include "pplib/pplib.h"
 

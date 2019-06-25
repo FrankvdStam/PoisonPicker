@@ -13,7 +13,13 @@ public:
 	void draw();
 	void poll_events();
 
+	void update_leds(std::vector<rgb> leds);
+
 private:
+	static int serpentine_map(int i, int length);
+
+	std::vector<rgb> m_leds;
+
 	bool open = true;
 
 	const int window_width = 800;

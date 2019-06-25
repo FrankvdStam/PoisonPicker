@@ -1,3 +1,4 @@
+#include "../simulator_pch.h"
 #include "renderer.h"
 
 renderer::renderer()
@@ -28,10 +29,40 @@ void renderer::draw()
 	ImGui_ImplOpenGL2_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
-
-	
-	ImGui::Begin("main window", &open, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoBringToFrontOnFocus);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+		
+	ImGui::Begin("main window", &open, ImVec2(800,600));
 	ImGui::Button("Hello world!");
+	
+	/*
+	 Drawing the leds by index:
+	 1-8	9-16	17-24
+	41-48	33-40	25-32
+	49-56	56-64	65-72
+	 */
+	const int row_size = 24;
+	const int col_size = 8;
+
+	int index;
+	for(int i = 0; i < m_leds.size(); i++)
+	{		
+		int index = serpentine_map(i, 24);
+		std::cout << i << ": " << index << std::endl;
+
+		ImGui::ColorButton("", ImVec4(m_leds[index].r , m_leds[index].g, m_leds[index].b, 255));
+
+		//Draw a bit of margin between groups of 8
+		if((i+1) % 24 != 0 && (i+1) % 8 == 0)
+		{
+			ImGui::SameLine();
+		}
+		//If not a group of 8 but also not a group of 24 (no newline) , draw the leds close to each other.
+		else if((i+1) % 24 != 0)
+		{
+			ImGui::SameLine(0, 0);
+		}
+	}
+
+	ImGui::ShowDemoWindow(&open);
 
 	ImGui::End();
 	ImGui::Render();
@@ -42,4 +73,35 @@ void renderer::draw()
 void renderer::poll_events()
 {
 	glfwPollEvents();
+}
+
+void renderer::update_leds(std::vector<rgb> leds)
+{
+	m_leds = leds;
+}
+
+
+/*
+Get a serpentine map. ex:
+
+ 0	1  2  3  4  5  6  7 
+15 14 13 12 11 10  9  8
+16 17 18 19 20 21 22 23
+
+
+ */
+int renderer::serpentine_map(int i, int length)
+{
+	const int row = (i / length) + 1;
+
+	if (row % 2 != 0)
+	{
+		return i;
+	}
+	else
+	{
+		const int max = (row * length) - 1;
+		const int min = ((row - 1) * length);
+		return (min + max) - i;
+	}
 }

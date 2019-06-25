@@ -101,11 +101,13 @@
     <ClInclude Include="src\graphics\imgui_impl_opengl2.h" />
     <ClInclude Include="src\graphics\renderer.h" />
     <ClInclude Include="src\led_controller.h" />
+    <ClInclude Include="src\simulator_pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\graphics\imgui_impl_glfw.cpp" />
     <ClCompile Include="src\graphics\imgui_impl_opengl2.cpp" />
     <ClCompile Include="src\graphics\renderer.cpp" />
+    <ClCompile Include="src\led_controller.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
