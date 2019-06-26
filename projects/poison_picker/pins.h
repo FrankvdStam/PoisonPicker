@@ -13,7 +13,7 @@
 #define DISPLAY_PIN_RS			12
 
 //led strip pin
-#define LED_PIN					13
+#define LED_PIN					10
 
 //Button pins (14 is mapped to A0 on Arduino uno, 15 to A1, etc.)
 #define BUTTON_PIN_TOGGLE_STATE 14
