@@ -13,6 +13,7 @@ namespace poison_picker {
 			m_dashboard->display_set_cursor(0, 1);
 			m_dashboard->display_write("value:");
 			m_led_controller->set_all_leds(rgb(0, 255, 0));
+			m_led_controller->show();
 		}
 
 		void brightness::update(unsigned long miliseconds)

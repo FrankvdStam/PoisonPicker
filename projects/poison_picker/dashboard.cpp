@@ -54,7 +54,6 @@ void dashboard::update(unsigned long milliseconds)
 
 
 	m_rotary_encoder_change = 0;
-	int potmeter_value = analogRead(POTMETER_PIN);
 	long rotary_encoder_value = m_rotary_encoder->read() / 4;
 	if (rotary_encoder_value != m_rotary_encoder_previous)
 	{

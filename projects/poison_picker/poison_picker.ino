@@ -4,9 +4,6 @@
 
 //#include "src/pplib/helper.h"
 
-int min = 1000;
-int max = 0;
-
 animator* m_animator;
 
 class serial_logger : public i_logger
@@ -35,42 +32,11 @@ public:
 	}
 };
 
-void calibrate_potmeter()
-{
-	Serial.println("Calibrating potmeter.");
-
-	int pot_min = 1024;
-	int pot_max = 0;
-
-	while(true){
-		int value = analogRead(A0);
-
-		bool print = false;
-		if(value > pot_max){
-			print = true;
-			pot_max = value;
-		}
-		if(value < pot_min){
-			print = true;
-			pot_min = value;
-		}
-		if(print){
-			Serial.print("Min: ");
-			Serial.print(pot_min);
-			Serial.print(" Max: ");
-			Serial.print(pot_max);
-			Serial.print('\n');
-		}
-	}
-}
-
 void setup() 
 {
 	Serial.begin(9600);
 	Serial.println("Starting.");
-
-	//calibrate_potmeter();
-
+	
 	i_logger::set(new serial_logger());
 	if (i_logger::available()) {
 		i_logger& logger = i_logger::get();

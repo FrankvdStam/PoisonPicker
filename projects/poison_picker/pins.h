@@ -4,11 +4,6 @@
 #define ROTARY_ENCODER_PIN1		2
 #define ROTARY_ENCODER_PIN2		3
 
-//Button pins
-#define BUTTON_PIN_TOGGLE_STATE 8
-#define BUTTON_PIN_RANDOMIZE	9
-#define BUTTON_PIN_KEY			10
-
 //Display pins
 #define DISPLAY_PIN_D7			4
 #define DISPLAY_PIN_D6			5
@@ -20,5 +15,8 @@
 //led strip pin
 #define LED_PIN					13
 
-//potmeter (14 is mapped to A0 on Arduino uno)
-#define POTMETER_PIN			14 
+//Button pins (14 is mapped to A0 on Arduino uno, 15 to A1, etc.)
+#define BUTTON_PIN_TOGGLE_STATE 14
+#define BUTTON_PIN_RANDOMIZE	15
+#define BUTTON_PIN_KEY			16
+#define BUTTON_PIN_SWITCH		17
