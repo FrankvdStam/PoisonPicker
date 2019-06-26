@@ -42,13 +42,11 @@ void renderer::draw()
 	const int row_size = 24;
 	const int col_size = 8;
 
-	int index;
-	for(int i = 0; i < m_leds.size(); i++)
+	for(int i = 0; i < m_led_colors.size(); i++)
 	{		
 		int index = serpentine_map(i, 24);
-
-		ImGui::ColorButton("", ImVec4(m_leds[index].r , m_leds[index].g, m_leds[index].b, 255));
-
+		ImGui::ColorButton("", m_led_colors[index]);
+		
 		//Draw a bit of margin between groups of 8
 		if((i+1) % 24 != 0 && (i+1) % 8 == 0)
 		{
@@ -76,7 +74,17 @@ void renderer::poll_events()
 
 void renderer::update_leds(std::vector<rgb> leds)
 {
-	m_leds = leds;
+	m_led_colors.clear();
+	for(unsigned int i = 0; i < leds.size(); i++)
+	{
+		m_led_colors.emplace_back(
+			static_cast<float>(leds[i].r)/255, 
+			static_cast<float>(leds[i].g)/255, 
+			static_cast<float>(leds[i].b)/255, 
+			1.0f
+		);
+	}
+
 }
 
 

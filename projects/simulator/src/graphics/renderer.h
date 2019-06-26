@@ -18,7 +18,7 @@ public:
 private:
 	static int serpentine_map(int i, int length);
 
-	std::vector<rgb> m_leds;
+	std::vector<ImVec4> m_led_colors;
 
 	bool open = true;
 

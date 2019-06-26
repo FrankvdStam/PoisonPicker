@@ -2,11 +2,11 @@
 #include "led_controller.h"
 
 
-led_controller::led_controller(renderer* renderer) : i_led_controller(0, 0, 0)
+led_controller::led_controller(renderer* renderer) : i_led_controller(72, 8, 9)
 {
 	m_renderer = renderer;
 
-	for (unsigned int i = 0; i < amount_of_leds; i++)
+	for (unsigned int i = 0; i < m_amount_of_leds; i++)
 	{
 		m_leds.emplace_back(rgb(0, 0, 0));
 	}
@@ -19,7 +19,7 @@ void led_controller::set_led(unsigned int index, rgb rgb)
 
 void led_controller::set_all_leds(rgb rgb)
 {
-	for (unsigned int i = 0; i < amount_of_leds; i++)
+	for (unsigned int i = 0; i < m_amount_of_leds; i++)
 	{
 		m_leds[i] = rgb;
 	}
@@ -27,8 +27,8 @@ void led_controller::set_all_leds(rgb rgb)
 
 void led_controller::set_segment(unsigned int index, rgb rgb)
 {
-	int transform = index * segment_size;
-	for(unsigned int i = 0; i < segment_size; i++)
+	int transform = index * m_segment_size;
+	for(unsigned int i = 0; i < m_segment_size; i++)
 	{
 		m_leds[transform + i] = rgb;
 	}
@@ -41,7 +41,7 @@ void led_controller::set_brightness(int brightness)
 
 void led_controller::clear()
 {
-	for (unsigned int i = 0; i < amount_of_leds; i++)
+	for (unsigned int i = 0; i < m_amount_of_leds; i++)
 	{
 		m_leds[i] = rgb(0,0,0);
 	}

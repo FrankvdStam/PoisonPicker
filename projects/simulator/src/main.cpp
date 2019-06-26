@@ -4,7 +4,9 @@
 #include "led_controller.h"
 #include "dashboard.h"
 #include "graphics/renderer.h"
+#include <stdlib.h> 
 #include <chrono>
+#include <time.h>
 
 //To be implemented by a client
 
@@ -40,12 +42,14 @@ public:
 
 long random(long min, long max)
 {
-	return 0;
+	return rand() % max + min;
 }
 
 
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
+
 	i_logger::set(new cout_logger());
 	if (i_logger::available()) {
 		i_logger& logger = i_logger::get();
@@ -54,8 +58,9 @@ int main(int argc, char** argv)
 
 	renderer* r = new renderer();
 
-	i_led_controller* m_led_controller = new led_controller(r);
+	i_led_controller* m_led_controller = new led_controller(r);	
 	i_dashboard* m_dashboard = new dashboard();
+
 
 	i_animation** animations = new i_animation * [3];
 	animations[0] = new flow(m_led_controller, m_dashboard);
@@ -64,9 +69,9 @@ int main(int argc, char** argv)
 	   	 
 	animator* m_animator = new animator(m_led_controller, m_dashboard, animations, 3);
 
-	m_led_controller->set_all_leds(rgb(255, 0, 0));
-	m_led_controller->set_segment(4, rgb(0, 255, 0));
-	m_led_controller->show();
+	//m_led_controller->set_all_leds(rgb(255, 0, 0));
+	//m_led_controller->set_segment(4, rgb(0, 255, 0));
+	//m_led_controller->show();
 	while(true)
 	{
 
