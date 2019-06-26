@@ -4,11 +4,13 @@
 #include "led_controller.h"
 #include "dashboard.h"
 #include "graphics/renderer.h"
-
+#include <chrono>
 
 //To be implemented by a client
 
+auto start_time = std::chrono::high_resolution_clock::now();
 
+auto finish = std::chrono::high_resolution_clock::now();
 
 class cout_logger : public i_logger
 {
@@ -56,8 +58,8 @@ int main(int argc, char** argv)
 	i_dashboard* m_dashboard = new dashboard();
 
 	i_animation** animations = new i_animation * [3];
-	animations[0] = new color_wheel(m_led_controller, m_dashboard);
-	animations[1] = new flow(m_led_controller, m_dashboard);
+	animations[0] = new flow(m_led_controller, m_dashboard);
+	animations[1] = new color_wheel(m_led_controller, m_dashboard);
 	animations[2] = new brightness(m_led_controller, m_dashboard);
 	   	 
 	animator* m_animator = new animator(m_led_controller, m_dashboard, animations, 3);
@@ -67,12 +69,10 @@ int main(int argc, char** argv)
 	m_led_controller->show();
 	while(true)
 	{
-		((dashboard*)m_dashboard)->m_rotary_encoder_change = 64;
-		m_animator->update(0);
-		((dashboard*)m_dashboard)->m_rotary_encoder_change = 1;
-		m_animator->update(0);
-		((dashboard*)m_dashboard)->m_rotary_encoder_change = 1;
 
+		auto elapsed = std::chrono::high_resolution_clock::now() - start_time;
+		unsigned long milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();
+		m_animator->update(milliseconds);
 		r->poll_events();
 		r->draw();
 	}	

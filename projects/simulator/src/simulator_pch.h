@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include <math.h>
+#include <cmath>
 
 #include "pplib/pplib.h"
 

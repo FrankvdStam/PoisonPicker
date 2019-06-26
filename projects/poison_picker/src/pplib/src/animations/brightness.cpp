@@ -1,5 +1,4 @@
 #include "brightness.h"
-#include "../i_logger.h"
 
 namespace poison_picker {
 	namespace animations

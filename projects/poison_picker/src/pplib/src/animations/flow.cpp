@@ -1,5 +1,4 @@
 #include "flow.h"
-#include "../i_logger.h"
 
 namespace poison_picker
 {
@@ -8,10 +7,8 @@ namespace poison_picker
 		flow::flow(i_led_controller* led_controller, i_dashboard* dashboard) 
 			: i_animation(led_controller, dashboard) 
 		{
-			i_logger::get().print("init flow.");
 			m_current_colors = new rgb[m_led_controller->get_number_of_segments()];
 			m_random_colors  = new rgb[m_led_controller->get_number_of_segments()];
-			i_logger::get().print("after init flow.");
 		}
 
 		void flow::activate(unsigned long milliseconds)

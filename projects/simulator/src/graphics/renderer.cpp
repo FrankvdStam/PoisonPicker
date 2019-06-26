@@ -46,7 +46,6 @@ void renderer::draw()
 	for(int i = 0; i < m_leds.size(); i++)
 	{		
 		int index = serpentine_map(i, 24);
-		std::cout << i << ": " << index << std::endl;
 
 		ImGui::ColorButton("", ImVec4(m_leds[index].r , m_leds[index].g, m_leds[index].b, 255));
 
