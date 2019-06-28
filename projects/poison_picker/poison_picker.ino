@@ -1,36 +1,11 @@
 #include "led_controller.h"
 #include "dashboard.h"
 #include "src/pplib/include/pplib/pplib.h"
+#include "serial_logger.h"
 
-//#include "src/pplib/helper.h"
+poison_picker::poison_picker* m_poison_picker;
 
-animator* m_animator;
 
-class serial_logger : public i_logger
-{
-public:
-	serial_logger() : i_logger(){}
-
-	void print(const char* str) 
-	{ 
-		Serial.print(str);
-	}
-
-	void print(int i) 
-	{ 
-		Serial.print(i);
-	}
-
-	void print(unsigned long i) 
-	{ 
-		Serial.print(i);
-	}
-
-	void print(unsigned char i)
-	{
-		Serial.print(i);
-	}
-};
 
 void setup() 
 {
@@ -58,12 +33,12 @@ void setup()
 	animations[2] = new brightness(m_led_controller, m_dashboard);
 	animations[3] = new rinald(m_led_controller, m_dashboard);
 
-	m_animator = new animator(m_led_controller, m_dashboard, animations, 4);
+	m_poison_picker = new poison_picker::poison_picker(m_led_controller, m_dashboard, animations, 4);
 }
 
 
 void loop() 
 {
 	//Serial.println("Loop");
-	m_animator->update(millis());
+	m_poison_picker->update(millis());
 }

@@ -39,9 +39,6 @@
     <ClInclude Include="src\animations\rinald.h">
       <Filter>src\animations</Filter>
     </ClInclude>
-    <ClInclude Include="src\animator.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\devices\i_dashboard.h">
       <Filter>src\devices</Filter>
     </ClInclude>
@@ -60,6 +57,9 @@
     <ClInclude Include="src\rgb.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\poison_picker.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\animations\brightness.cpp">
@@ -74,13 +74,13 @@
     <ClCompile Include="src\animations\rinald.cpp">
       <Filter>src\animations</Filter>
     </ClCompile>
-    <ClCompile Include="src\animator.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\helper.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\i_logger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\poison_picker.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

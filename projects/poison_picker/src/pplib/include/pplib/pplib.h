@@ -26,9 +26,9 @@ using poison_picker::animations::brightness;
 using poison_picker::animations::rinald;
 
 //animator to tie things together
-#include "../../src/animator.h"
-
-using poison_picker::animator;
+#include "../../src/poison_picker.h"
+//Can't bring poison_picker into scope via namespace
+//typedef poison_picker poison_picker;
 
 //debug printing
 #include "../../src/i_logger.h"

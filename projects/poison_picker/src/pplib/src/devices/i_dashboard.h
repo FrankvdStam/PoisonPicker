@@ -22,6 +22,9 @@ namespace poison_picker
 			//Toggles randomize state, which automatically reverts back to the original state.
 			virtual bool button_pressed_randomize() = 0;
 
+			//This button is on the rotary encoder
+			virtual bool button_pressed_switch() = 0;
+
 			//potmeter to turn the color wheel or set the brightness
 			virtual int rotary_encoder_change() = 0;
 

@@ -8,7 +8,8 @@ dashboard::dashboard()
 	pinMode(BUTTON_PIN_KEY			, INPUT_PULLUP);
 	pinMode(BUTTON_PIN_TOGGLE_STATE	, INPUT_PULLUP);
 	pinMode(BUTTON_PIN_RANDOMIZE	, INPUT_PULLUP);
-	
+	pinMode(BUTTON_PIN_SWITCH		, INPUT_PULLUP);
+
 	//Initialize the lcd
 	lcd = new LiquidCrystal(DISPLAY_PIN_RS, DISPLAY_PIN_EN, DISPLAY_PIN_D4, DISPLAY_PIN_D5, DISPLAY_PIN_D6, DISPLAY_PIN_D7);
 	lcd->begin(DISPLAY_WIDTH, DISPLAY_HEIGHT);
@@ -51,6 +52,7 @@ void dashboard::update(unsigned long milliseconds)
 	//toggle_state	= !digitalRead(BUTTON_PIN_TOGGLE_STATE);
 	randomize		= !digitalRead(BUTTON_PIN_RANDOMIZE);
 
+	m_switch = !digitalRead(BUTTON_PIN_SWITCH);
 
 
 	m_rotary_encoder_change = 0;
@@ -60,12 +62,30 @@ void dashboard::update(unsigned long milliseconds)
 		m_rotary_encoder_change = rotary_encoder_value - m_rotary_encoder_previous;
 		m_rotary_encoder_previous = rotary_encoder_value;
 	}
+
+
+	//i_logger::get().print("key: ");
+	//i_logger::get().print(button_pressed_key());
+	//i_logger::get().print("\n");
+	//
+	//i_logger::get().print("toggle state: ");
+	//i_logger::get().print(button_pressed_toggle_state());
+	//i_logger::get().print("\n");
+	//
+	//i_logger::get().print("randomize: ");
+	//i_logger::get().print(button_pressed_randomize());
+	//i_logger::get().print("\n");
+	//
+	//i_logger::get().print("switch: ");
+	//i_logger::get().print(button_pressed_switch());
+	//i_logger::get().print("\n");
 }
 
 //buttons
 bool dashboard::button_pressed_key() { return key; }
 bool dashboard::button_pressed_toggle_state() { return toggle_state; }
 bool dashboard::button_pressed_randomize() { return randomize; }
+bool dashboard::button_pressed_switch() { return m_switch; }
 
 int dashboard::rotary_encoder_change()
 { 

@@ -26,6 +26,7 @@ public:
 	bool button_pressed_key();
 	bool button_pressed_toggle_state();
 	bool button_pressed_randomize();
+	bool button_pressed_switch();
 
 	int rotary_encoder_change();
 
@@ -47,6 +48,8 @@ private:
 	bool toggle_state_previous = false;
 	bool can_toggle_state = true;
 	unsigned long toggle_state_debounce_time = 0;
+
+	bool m_switch = false;
 
 	bool randomize = false;
 	bool can_toggle_randomize = true;
