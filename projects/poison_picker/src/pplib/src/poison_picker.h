@@ -11,7 +11,7 @@ using poison_picker::animations::i_animation;
 namespace poison_picker
 {
 	enum class state {
-		disabled,
+		disabled = 0,
 		animations,
 		randomizing
 	};

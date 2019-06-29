@@ -20,17 +20,20 @@ void dashboard::update(unsigned long milliseconds)
 {
 	//buttons are pullup up, default high, low-activated. Flip it around here right away for easy of mind.
 	bool button_value = !digitalRead(BUTTON_PIN_KEY);
-
-	//The key is a toggle
-	if (button_value && can_toggle_key) {
-		can_toggle_key = false;
-		key = !key;
+	key = false;
+	if (m_can_toggle_key && button_value) 
+	{
+		m_can_toggle_key = false;
+		key = button_value;
 	}
 
-	if (!button_value) {
-		can_toggle_key = true;
+	if (!button_value)
+	{
+		m_can_toggle_key = true;
 	}
-			   
+	
+	
+				   
 	//Debounce toggle_state
 	button_value = !digitalRead(BUTTON_PIN_TOGGLE_STATE);
 

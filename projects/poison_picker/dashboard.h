@@ -42,7 +42,7 @@ private:
 	Encoder* m_rotary_encoder;
 	
 	bool key = false;
-	bool can_toggle_key = true;
+	bool m_can_toggle_key = true;
 
 	bool toggle_state = false;
 	bool toggle_state_previous = false;

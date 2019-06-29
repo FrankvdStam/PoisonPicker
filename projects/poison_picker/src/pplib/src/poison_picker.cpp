@@ -22,6 +22,10 @@ namespace poison_picker
 	void poison_picker::update(unsigned long milliseconds)
 	{
 		m_dashboard->update(milliseconds);
+		i_logger::get().print("KEY: ");
+		i_logger::get().print(m_dashboard->button_pressed_key());
+		i_logger::get().print("\n");
+
 		switch (m_state) 
 		{
 		case state::disabled:
@@ -38,7 +42,7 @@ namespace poison_picker
 	void poison_picker::run_disabled(unsigned long milliseconds)
 	{
 		//Wait for keypress and go to animation state
-		if (m_can_toggle_state && m_dashboard->button_pressed_key())
+		if (m_dashboard->button_pressed_key())
 		{
 			m_state = state::animations;
 			m_animations[m_current_animation]->activate(milliseconds);
