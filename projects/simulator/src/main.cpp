@@ -59,15 +59,16 @@ int main(int argc, char** argv)
 	renderer* r = new renderer();
 
 	i_led_controller* m_led_controller = new led_controller(r);	
-	i_dashboard* m_dashboard = new dashboard();
+	i_dashboard* m_dashboard = new dashboard(r);
 
 
-	i_animation** animations = new i_animation * [3];
-	animations[0] = new flow(m_led_controller, m_dashboard);
-	animations[1] = new color_wheel(m_led_controller, m_dashboard);
+	i_animation** animations = new i_animation * [4];
+
+	animations[0] = new color_wheel(m_led_controller, m_dashboard);
+	animations[1] = new flow(m_led_controller, m_dashboard);
 	animations[2] = new brightness(m_led_controller, m_dashboard);
-	   	 
-	animator* m_animator = new animator(m_led_controller, m_dashboard, animations, 3);
+	animations[3] = new rinald(m_led_controller, m_dashboard);	   	 
+	poison_picker::poison_picker* m_poison_picker = new poison_picker::poison_picker(m_led_controller, m_dashboard, animations, 4);
 
 	//m_led_controller->set_all_leds(rgb(255, 0, 0));
 	//m_led_controller->set_segment(4, rgb(0, 255, 0));
@@ -77,7 +78,7 @@ int main(int argc, char** argv)
 
 		auto elapsed = std::chrono::high_resolution_clock::now() - start_time;
 		unsigned long milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count();
-		m_animator->update(milliseconds);
+		m_poison_picker->update(milliseconds);
 		r->poll_events();
 		r->draw();
 	}	

@@ -15,6 +15,13 @@ public:
 
 	void update_leds(std::vector<rgb> leds);
 
+	//Button values
+	bool m_key = false;
+	bool m_toggle_state = false;
+	bool m_randomize = false;
+	bool m_switch = false;
+	int m_rotary_encoder = 0;
+
 private:
 	static int serpentine_map(int i, int length);
 
@@ -26,4 +33,5 @@ private:
 	const int window_height = 600;
 	GLFWwindow* m_window;
 
+	
 };

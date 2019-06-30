@@ -22,10 +22,6 @@ namespace poison_picker
 	void poison_picker::update(unsigned long milliseconds)
 	{
 		m_dashboard->update(milliseconds);
-		i_logger::get().print("KEY: ");
-		i_logger::get().print(m_dashboard->button_pressed_key());
-		i_logger::get().print("\n");
-
 		switch (m_state) 
 		{
 		case state::disabled:

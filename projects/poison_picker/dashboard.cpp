@@ -20,11 +20,11 @@ void dashboard::update(unsigned long milliseconds)
 {
 	//buttons are pullup up, default high, low-activated. Flip it around here right away for easy of mind.
 	bool button_value = !digitalRead(BUTTON_PIN_KEY);
-	key = false;
+	m_key = false;
 	if (m_can_toggle_key && button_value) 
 	{
 		m_can_toggle_key = false;
-		key = button_value;
+		m_key = button_value;
 	}
 
 	if (!button_value)
@@ -46,14 +46,14 @@ void dashboard::update(unsigned long milliseconds)
 
 	if (milliseconds - toggle_state_debounce_time > BUTTON_DEBOUNCE_DELAY)
 	{
-		toggle_state = button_value;
+		m_toggle_state = button_value;
 	}
 	
 	toggle_state_previous = button_value;
 
 	//The other buttons are direct
 	//toggle_state	= !digitalRead(BUTTON_PIN_TOGGLE_STATE);
-	randomize		= !digitalRead(BUTTON_PIN_RANDOMIZE);
+	m_randomize		= !digitalRead(BUTTON_PIN_RANDOMIZE);
 
 	m_switch = !digitalRead(BUTTON_PIN_SWITCH);
 
@@ -85,9 +85,9 @@ void dashboard::update(unsigned long milliseconds)
 }
 
 //buttons
-bool dashboard::button_pressed_key() { return key; }
-bool dashboard::button_pressed_toggle_state() { return toggle_state; }
-bool dashboard::button_pressed_randomize() { return randomize; }
+bool dashboard::button_pressed_key() { return m_key; }
+bool dashboard::button_pressed_toggle_state() { return m_toggle_state; }
+bool dashboard::button_pressed_randomize() { return m_randomize; }
 bool dashboard::button_pressed_switch() { return m_switch; }
 
 int dashboard::rotary_encoder_change()

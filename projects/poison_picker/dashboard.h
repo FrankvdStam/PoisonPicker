@@ -41,17 +41,17 @@ private:
 	LiquidCrystal* lcd;
 	Encoder* m_rotary_encoder;
 	
-	bool key = false;
+	bool m_key = false;
 	bool m_can_toggle_key = true;
 
-	bool toggle_state = false;
+	bool m_toggle_state = false;
 	bool toggle_state_previous = false;
 	bool can_toggle_state = true;
 	unsigned long toggle_state_debounce_time = 0;
 
 	bool m_switch = false;
 
-	bool randomize = false;
+	bool m_randomize = false;
 	bool can_toggle_randomize = true;
 
 	long m_rotary_encoder_previous = 0;

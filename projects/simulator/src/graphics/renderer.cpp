@@ -31,7 +31,6 @@ void renderer::draw()
 	ImGui::NewFrame();
 		
 	ImGui::Begin("main window", &open, ImVec2(800,600));
-	ImGui::Button("Hello world!");
 	
 	/*
 	 Drawing the leds by index:
@@ -58,6 +57,26 @@ void renderer::draw()
 			ImGui::SameLine(0, 0);
 		}
 	}
+
+
+	m_randomize		= ImGui::Button("Randomize");
+	ImGui::SameLine();
+	m_toggle_state	= ImGui::Button("Toggle state");
+	ImGui::SameLine();
+
+	// Arrow buttons with Repeater
+	float spacing = ImGui::GetStyle().ItemInnerSpacing.x;
+	ImGui::PushButtonRepeat(true);
+	if (ImGui::ArrowButton("##left", ImGuiDir_Left)) { m_rotary_encoder--; }
+	ImGui::SameLine(0.0f, spacing);
+	if (ImGui::ArrowButton("##right", ImGuiDir_Right)) { m_rotary_encoder++; }
+	ImGui::PopButtonRepeat();
+	ImGui::SameLine();
+
+	ImGui::SameLine();
+	m_switch		= ImGui::Button("Switch");
+	ImGui::SameLine();
+	m_key			= ImGui::Button("Key");
 
 	ImGui::ShowDemoWindow(&open);
 
