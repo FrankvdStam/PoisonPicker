@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 	i_dashboard* m_dashboard = new dashboard(r);
 
 
-	i_animation** animations = new i_animation * [4];
+	i_animation** animations = new i_animation*[4];
 
 	animations[0] = new color_wheel(m_led_controller, m_dashboard);
 	animations[1] = new flow(m_led_controller, m_dashboard);
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 	//m_led_controller->set_all_leds(rgb(255, 0, 0));
 	//m_led_controller->set_segment(4, rgb(0, 255, 0));
 	//m_led_controller->show();
-	while(true)
+	while(!r->window_should_close())
 	{
 
 		auto elapsed = std::chrono::high_resolution_clock::now() - start_time;

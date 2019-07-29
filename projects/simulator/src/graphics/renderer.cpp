@@ -78,8 +78,8 @@ void renderer::draw()
 	ImGui::SameLine();
 	m_key			= ImGui::Button("Key");
 
+	ImGui::Text(m_display_text.c_str());
 
-	//ImGui::Text()
 
 	ImGui::ShowDemoWindow(&open);
 
@@ -92,6 +92,11 @@ void renderer::draw()
 void renderer::poll_events()
 {
 	glfwPollEvents();
+}
+
+bool renderer::window_should_close() 
+{
+	return glfwWindowShouldClose(m_window);
 }
 
 void renderer::update_leds(std::vector<rgb> leds)
@@ -116,9 +121,8 @@ Get a serpentine map. ex:
  0	1  2  3  4  5  6  7 
 15 14 13 12 11 10  9  8
 16 17 18 19 20 21 22 23
-
-
  */
+
 int renderer::serpentine_map(int i, int length)
 {
 	const int row = (i / length) + 1;

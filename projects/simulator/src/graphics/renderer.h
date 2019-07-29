@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
@@ -14,6 +15,7 @@ public:
 
 	void draw();
 	void poll_events();
+	bool window_should_close();
 
 	void update_leds(std::vector<rgb> leds);
 
@@ -24,6 +26,7 @@ public:
 	bool m_switch = false;
 	int m_rotary_encoder = 0;
 
+	std::string m_display_text;
 private:
 	static int serpentine_map(int i, int length);
 
@@ -34,6 +37,4 @@ private:
 	const int window_width = 800;
 	const int window_height = 600;
 	GLFWwindow* m_window;
-
-	
 };
