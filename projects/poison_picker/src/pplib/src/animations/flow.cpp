@@ -9,6 +9,7 @@ namespace poison_picker
 		{			
 			m_current_colors = new rgb[m_led_controller->get_number_of_segments()];
 			m_random_colors  = new rgb[m_led_controller->get_number_of_segments()];
+			m_current_steps	 = new int[m_led_controller->get_number_of_segments()];
 		}
 
 		void flow::activate(unsigned long milliseconds)
@@ -23,6 +24,7 @@ namespace poison_picker
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
 				m_current_colors[i] = rgb(0,0,0);
 				m_random_colors[i] = get_random_rgb();
+				m_current_steps[i] = random(0, 20);//Give the leds a random offset compared to each other
 			}
 		}
 
@@ -54,20 +56,28 @@ namespace poison_picker
 
 		void flow::reflow()
 		{
-			//approach the colors
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
-				if (m_current_colors[i] == m_random_colors[i]) {
-					m_random_colors[i] = get_random_rgb();
+				if (m_current_steps[i] == 0)
+				{
+					m_current_steps[i] = steps;
+					rgb random_rgb = get_random_rgb();
+					while (helper::rgb_array_contains(m_random_colors, m_led_controller->get_number_of_segments(), random_rgb))
+					{
+						random_rgb = get_random_rgb();
+					}
+					m_random_colors[i] = random_rgb;
 				}
 
-				//Approach the rgb values
-				unsigned char r = approach(m_current_colors[i].r, m_random_colors[i].r, m_flow_increment);
-				unsigned char g = approach(m_current_colors[i].g, m_random_colors[i].g, m_flow_increment);
-				unsigned char b = approach(m_current_colors[i].b, m_random_colors[i].b, m_flow_increment);
+				vector3i curr(m_current_colors[i]);
+				vector3i rand(m_random_colors[i]);
 
-				rgb appoach_color(r, g, b);
-				m_current_colors[i] = appoach_color;
-				m_led_controller->set_segment(i, appoach_color);
+				vector3i approach_vector = calculate_approach_vector(curr, rand, m_current_steps[i]);
+				m_current_steps[i]--;
+
+				m_current_colors[i].r += approach_vector.x;
+				m_current_colors[i].g += approach_vector.y;
+				m_current_colors[i].b += approach_vector.z;
+				m_led_controller->set_segment(i, m_current_colors[i]);
 			}
 			m_led_controller->show();
 		}
@@ -76,21 +86,10 @@ namespace poison_picker
 		{
 		}
 
-		unsigned char flow::approach(unsigned char source, unsigned char destination, unsigned char increment)
+		vector3i flow::calculate_approach_vector(vector3i a, vector3i b, int steps)
 		{
-			if (source != destination)
-			{
-				if (source > destination)
-				{
-					return source -= increment;
-				}
-				else
-				{
-					return source += increment;
-				}
-			}
-			return source;
-		}		
+			return vector3i((b.x - a.x) / steps, (b.y - a.y) / steps, (b.z - a.z) / steps);
+		}
 
 		rgb flow::get_random_rgb() 
 		{

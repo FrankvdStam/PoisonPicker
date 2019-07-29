@@ -62,4 +62,15 @@ namespace poison_picker
 		return rgb((unsigned char)random(0, 256), (unsigned char)random(0, 256), (unsigned char)random(0, 256));
 	}
 
+	bool helper::rgb_array_contains(rgb* rgb_array, unsigned int size, rgb rgb)
+	{
+		for (unsigned int i = 0; i < size; i++)
+		{
+			if (rgb_array[i] == rgb)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

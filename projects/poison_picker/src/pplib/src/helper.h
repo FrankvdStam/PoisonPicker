@@ -13,5 +13,6 @@ namespace poison_picker
 		static long approach_looparound(const long current_value, const long increment, const long min, const long max);
 		static void log_rgb(rgb rgb, bool newline);
 		static rgb get_random_rgb();
+		static bool rgb_array_contains(rgb* rgb_array, unsigned int size, rgb rgb);
 	};
 }

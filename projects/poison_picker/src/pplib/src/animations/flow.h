@@ -18,14 +18,16 @@ namespace poison_picker
 			void deactivate(unsigned long milliseconds);
 		private:
 			void reflow();
-
-			unsigned char approach(unsigned char source, unsigned char destination, unsigned char increment);
+			vector3i calculate_approach_vector(vector3i a, vector3i b, int steps);
 			rgb get_random_rgb();
+			bool random_colors_contains(rgb rgb);
 
 			unsigned char m_flow_increment = 1;
-			long m_flow_interval = 5;
+			long m_flow_interval = 35;
 			unsigned long m_previous_milliseconds = 0;
 
+			const int steps = 20;
+			int* m_current_steps;
 			rgb* m_current_colors;
 			rgb* m_random_colors;
 
@@ -67,8 +69,4 @@ namespace poison_picker
 			};
 		};
 	}
-
 }
-
-
-

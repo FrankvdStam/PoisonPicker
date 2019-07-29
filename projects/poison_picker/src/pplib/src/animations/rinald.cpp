@@ -21,7 +21,7 @@ namespace poison_picker
 			m_dashboard->display_set_cursor(0, 1);
 			m_dashboard->display_write("  ");
 			m_dashboard->display_set_cursor(0, 1);
-			m_dashboard->display_write(m_index);
+			m_dashboard->display_write((int)m_index);
 
 
 			if (milliseconds > m_previous_milliseconds + m_delay) 

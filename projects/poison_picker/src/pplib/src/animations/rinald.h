@@ -15,7 +15,7 @@ namespace poison_picker
 			void update(unsigned long milliseconds);
 			void deactivate(unsigned long milliseconds);
 		private:
-			int m_index = 0;
+			unsigned int m_index = 0;
 			unsigned long m_delay = 250;
 			unsigned long m_previous_milliseconds = 250;
 		};
