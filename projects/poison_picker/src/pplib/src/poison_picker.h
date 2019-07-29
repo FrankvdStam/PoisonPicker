@@ -2,7 +2,6 @@
 #include "devices/i_led_controller.h"
 #include "devices/i_dashboard.h"
 #include "animations/i_animation.h"
-#include "animations/animations.h"
 
 using poison_picker::devices::i_dashboard;
 using poison_picker::devices::i_led_controller;
@@ -19,7 +18,7 @@ namespace poison_picker
 	class poison_picker 
 	{
 	public:
-		poison_picker(i_led_controller* led_controller, i_dashboard* dashboard, i_animation** animations, unsigned int size);
+		poison_picker(i_led_controller* led_controller, i_dashboard* dashboard, i_animation* randomize_animation, i_animation** animations, unsigned int size);
 		~poison_picker();
 		void update(unsigned long milliseconds);
 
@@ -38,17 +37,10 @@ namespace poison_picker
 		i_animation** m_animations;
 		unsigned int m_animations_size = 0;
 		unsigned int m_current_animation = 0;
+
+
+		unsigned int m_randomize_milliseconds = 0;
+		unsigned int m_randomize_interval = 10000;
+		i_animation* m_randomize_animation;
 	};
 }
-
-/*
-void println(char* str);
-
-
-void poison_picker::println(char* str)
-{
-	Serial.println(str);
-}
-
-extern void poison_picker::println();
-*/

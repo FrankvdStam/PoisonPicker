@@ -19,11 +19,13 @@ using poison_picker::rgb;
 #include "../../src/animations/flow.h"
 #include "../../src/animations/brightness.h"
 #include "../../src/animations/rinald.h"
+#include "../../src/animations/randomize.h"
 
 using poison_picker::animations::color_wheel;
 using poison_picker::animations::flow;
 using poison_picker::animations::brightness;
 using poison_picker::animations::rinald;
+using poison_picker::animations::randomize;
 
 //animator to tie things together
 #include "../../src/poison_picker.h"

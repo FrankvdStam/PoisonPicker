@@ -21,9 +21,6 @@
     <ClInclude Include="include\pplib\pplib.h">
       <Filter>include\pplib</Filter>
     </ClInclude>
-    <ClInclude Include="src\animations\animations.h">
-      <Filter>src\animations</Filter>
-    </ClInclude>
     <ClInclude Include="src\animations\brightness.h">
       <Filter>src\animations</Filter>
     </ClInclude>
@@ -60,6 +57,7 @@
     <ClInclude Include="src\poison_picker.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\animations\randomize.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\animations\brightness.cpp">
@@ -83,5 +81,6 @@
     <ClCompile Include="src\poison_picker.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\animations\randomize.cpp" />
   </ItemGroup>
 </Project>

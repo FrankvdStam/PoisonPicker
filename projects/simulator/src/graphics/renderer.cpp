@@ -30,7 +30,7 @@ void renderer::draw()
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
 		
-	ImGui::Begin("main window", &open, ImVec2(800,600));
+	ImGui::Begin(" ", &open, ImVec2(800,600), ImGuiWindowFlags_NoTitleBar & ImGuiWindowFlags_NoMove & ImGuiWindowFlags_NoResize);
 	
 	/*
 	 Drawing the leds by index:
@@ -79,9 +79,8 @@ void renderer::draw()
 	m_key			= ImGui::Button("Key");
 
 	ImGui::Text(m_display_text.c_str());
-
-
-	ImGui::ShowDemoWindow(&open);
+	
+	//ImGui::ShowDemoWindow(&open);
 
 	ImGui::End();
 	ImGui::Render();

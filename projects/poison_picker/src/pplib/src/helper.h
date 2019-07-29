@@ -1,6 +1,7 @@
 #pragma once
 #include "i_logger.h"
 #include "rgb.h"
+#include "random.h"
 
 namespace poison_picker
 {
@@ -11,5 +12,6 @@ namespace poison_picker
 		static int amount_of_digits(int number);
 		static long approach_looparound(const long current_value, const long increment, const long min, const long max);
 		static void log_rgb(rgb rgb, bool newline);
+		static rgb get_random_rgb();
 	};
 }

@@ -57,4 +57,9 @@ namespace poison_picker
 		}
 	}
 
+	rgb helper::get_random_rgb()
+	{
+		return rgb((unsigned char)random(0, 256), (unsigned char)random(0, 256), (unsigned char)random(0, 256));
+	}
+
 }

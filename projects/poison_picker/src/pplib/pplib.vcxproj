@@ -77,11 +77,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\pplib\pplib.h" />
-    <ClInclude Include="src\animations\animations.h" />
     <ClInclude Include="src\animations\brightness.h" />
     <ClInclude Include="src\animations\color_wheel.h" />
     <ClInclude Include="src\animations\flow.h" />
     <ClInclude Include="src\animations\i_animation.h" />
+    <ClInclude Include="src\animations\randomize.h" />
     <ClInclude Include="src\animations\rinald.h" />
     <ClInclude Include="src\poison_picker.h" />
     <ClInclude Include="src\devices\i_dashboard.h" />
@@ -95,6 +95,7 @@
     <ClCompile Include="src\animations\brightness.cpp" />
     <ClCompile Include="src\animations\color_wheel.cpp" />
     <ClCompile Include="src\animations\flow.cpp" />
+    <ClCompile Include="src\animations\randomize.cpp" />
     <ClCompile Include="src\animations\rinald.cpp" />
     <ClCompile Include="src\poison_picker.cpp" />
     <ClCompile Include="src\helper.cpp" />

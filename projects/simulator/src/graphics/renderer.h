@@ -34,7 +34,7 @@ private:
 
 	bool open = true;
 
-	const int window_width = 800;
-	const int window_height = 600;
+	const int window_width = 360;
+	const int window_height = 180;
 	GLFWwindow* m_window;
 };
