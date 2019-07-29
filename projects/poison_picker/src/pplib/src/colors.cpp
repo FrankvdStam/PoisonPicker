@@ -42,9 +42,16 @@ namespace poison_picker
 
 	const rgb* colors::m_colors = m_colors_data;
 
+	//Get a random color from the list of predefined colors
 	const rgb colors::get_random_color()
 	{
 		return m_colors[random(0, s_amount_of_colors)];
+	}
+
+	//Get a rgb instance with random rgb values
+	const rgb colors::get_random_rgb()
+	{
+		return rgb((unsigned char)random(0, 256), (unsigned char)random(0, 256), (unsigned char)random(0, 256));
 	}
 
 }

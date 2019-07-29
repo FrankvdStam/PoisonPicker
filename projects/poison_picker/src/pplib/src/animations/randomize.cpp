@@ -27,7 +27,7 @@ namespace poison_picker
 			
 			//set leds to random colors
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
-				m_led_controller->set_segment(i, helper::get_random_rgb());
+				m_led_controller->set_segment(i, colors::get_random_color());
 			}
 			m_led_controller->show();
 		}

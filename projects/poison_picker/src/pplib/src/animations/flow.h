@@ -1,7 +1,5 @@
 #pragma once
 #include "i_animation.h"
-#include "../random.h"
-#include "../colors.h"
 
 namespace poison_picker 
 {
