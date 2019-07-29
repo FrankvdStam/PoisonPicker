@@ -58,6 +58,7 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\animations\randomize.h" />
+    <ClInclude Include="src\colors.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\animations\brightness.cpp">
@@ -82,5 +83,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\animations\randomize.cpp" />
+    <ClCompile Include="src\colors.cpp" />
   </ItemGroup>
 </Project>

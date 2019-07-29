@@ -23,7 +23,7 @@ namespace poison_picker
 
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
 				m_current_colors[i] = rgb(0,0,0);
-				m_random_colors[i] = get_random_rgb();
+				m_random_colors[i] = colors::get_random_color();
 				m_current_steps[i] = random(0, 20);//Give the leds a random offset compared to each other
 			}
 		}
@@ -60,10 +60,10 @@ namespace poison_picker
 				if (m_current_steps[i] == 0)
 				{
 					m_current_steps[i] = steps;
-					rgb random_rgb = get_random_rgb();
+					rgb random_rgb = colors::get_random_color();
 					while (helper::rgb_array_contains(m_random_colors, m_led_controller->get_number_of_segments(), random_rgb))
 					{
-						random_rgb = get_random_rgb();
+						random_rgb = colors::get_random_color();
 					}
 					m_random_colors[i] = random_rgb;
 				}
@@ -89,11 +89,6 @@ namespace poison_picker
 		vector3i flow::calculate_approach_vector(vector3i a, vector3i b, int steps)
 		{
 			return vector3i((b.x - a.x) / steps, (b.y - a.y) / steps, (b.z - a.z) / steps);
-		}
-
-		rgb flow::get_random_rgb() 
-		{
-			return m_colors[random(0, AMOUNT_OF_COLORS)];
 		}
 	}
 }

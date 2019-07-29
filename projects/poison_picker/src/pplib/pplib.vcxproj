@@ -83,6 +83,7 @@
     <ClInclude Include="src\animations\i_animation.h" />
     <ClInclude Include="src\animations\randomize.h" />
     <ClInclude Include="src\animations\rinald.h" />
+    <ClInclude Include="src\colors.h" />
     <ClInclude Include="src\poison_picker.h" />
     <ClInclude Include="src\devices\i_dashboard.h" />
     <ClInclude Include="src\devices\i_led_controller.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="src\animations\flow.cpp" />
     <ClCompile Include="src\animations\randomize.cpp" />
     <ClCompile Include="src\animations\rinald.cpp" />
+    <ClCompile Include="src\colors.cpp" />
     <ClCompile Include="src\poison_picker.cpp" />
     <ClCompile Include="src\helper.cpp" />
     <ClCompile Include="src\i_logger.cpp" />
