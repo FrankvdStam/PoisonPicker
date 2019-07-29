@@ -41,7 +41,7 @@ void renderer::draw()
 	const int row_size = 24;
 	const int col_size = 8;
 
-	for(int i = 0; i < m_led_colors.size(); i++)
+	for(unsigned int i = 0; i < m_led_colors.size(); i++)
 	{		
 		int index = serpentine_map(i, 24);
 		ImGui::ColorButton("", m_led_colors[index]);
@@ -77,6 +77,9 @@ void renderer::draw()
 	m_switch		= ImGui::Button("Switch");
 	ImGui::SameLine();
 	m_key			= ImGui::Button("Key");
+
+
+	//ImGui::Text()
 
 	ImGui::ShowDemoWindow(&open);
 

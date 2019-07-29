@@ -32,5 +32,6 @@
     </ClCompile>
     <ClCompile Include="src\led_controller.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\dashboard.cpp" />
   </ItemGroup>
 </Project>

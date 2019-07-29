@@ -1,54 +1,20 @@
 #pragma once
 #include "pplib/pplib.h"
-
+#include "graphics/renderer.h"
 
 class dashboard : public i_dashboard
 {
 public:
-	dashboard(renderer* r) : m_renderer(r) 
-	{
+	dashboard(renderer* r) : m_renderer(r) {}
 
-	}
+	void update(unsigned long milliseconds);
 
-	void update(unsigned long milliseconds) override 
-	{
-		m_key			= m_renderer->m_key;
-		m_toggle_state	= m_renderer->m_toggle_state;
-		m_randomize		= m_renderer->m_randomize;
-		m_switch		= m_renderer->m_switch;
-
-		m_rotary_encoder_change = 0;
-		if (m_previous_rotary_encoder_value != m_renderer->m_rotary_encoder)
-		{
-			m_rotary_encoder_change = m_renderer->m_rotary_encoder - m_previous_rotary_encoder_value;
-			m_previous_rotary_encoder_value = m_renderer->m_rotary_encoder;
-		}
-	}
-
-	bool button_pressed_key() override
-	{
-		return m_key;
-	}
-
-	bool button_pressed_toggle_state() override
-	{
-		return m_toggle_state;
-	}
-
-	bool button_pressed_randomize() override
-	{
-		return m_randomize;
-	}
-
-	bool button_pressed_switch() override
-	{
-		return m_switch;
-	}
-
-	int rotary_encoder_change()  override
-	{
-		return m_rotary_encoder_change;
-	}
+	//Button methods
+	bool button_pressed_key() override;
+	bool button_pressed_toggle_state() override;
+	bool button_pressed_randomize() override;
+	bool button_pressed_switch() override;
+	int rotary_encoder_change() override;
 
 	//methods to control the display
 	void display_clear() override {}
