@@ -7,7 +7,7 @@
 #include <stdlib.h> 
 #include <chrono>
 #include <time.h>
-
+#include <string>
 //To be implemented by a client
 
 auto start_time = std::chrono::high_resolution_clock::now();
@@ -21,22 +21,27 @@ public:
 
 	void print(const char* str) override
 	{ 
-		std::cout << str << std::endl;
+		std::cout << str;		
 	}
 
 	void print(int i) override
 	{ 
-		std::cout << i << std::endl;
+		std::cout << std::to_string(i);
 	}	
 
 	void print(unsigned long i) override
 	{
-		std::cout << i << std::endl;
+		std::cout << std::to_string(i);
 	}
 
 	void print(unsigned char i) override
 	{
-		std::cout << i << std::endl;
+		std::cout << std::to_string(i);
+	}
+
+	void println (const char* str) override
+	{
+		std::cout << str << std::endl;
 	}
 };
 

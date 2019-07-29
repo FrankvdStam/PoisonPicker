@@ -26,6 +26,7 @@ namespace poison_picker
 		virtual void print(int i) = 0;
 		virtual void print(unsigned long i) = 0;
 		virtual void print(unsigned char i) = 0;
+		virtual void println(const char* str) = 0;
 	private:
 		static i_logger* s_instance;
 	};	

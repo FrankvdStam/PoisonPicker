@@ -25,4 +25,9 @@ public:
 	{
 		Serial.print(i);
 	}
+
+	void println(const char* str)
+	{
+		Serial.println(str);
+	}
 };

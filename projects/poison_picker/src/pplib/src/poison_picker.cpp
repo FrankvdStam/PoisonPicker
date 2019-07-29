@@ -94,6 +94,27 @@ namespace poison_picker
 		}
 
 		m_animations[m_current_animation]->update(milliseconds);
+
+#ifdef POISON_PICKER_DIAGNOSTICS
+		m_diagnostic_update_count++;
+
+		if (m_diagnostic_previous_milliseconds + m_diagnostic_interval < milliseconds)
+		{
+			long time = milliseconds - m_diagnostic_previous_milliseconds;
+			m_diagnostic_previous_milliseconds = milliseconds;
+
+			if (i_logger::available()) {
+				i_logger& logger = i_logger::get();
+				logger.print("fps: ");
+				logger.print(m_diagnostic_update_count);
+				logger.print(" - ");
+				logger.print(time);
+				logger.println("");
+			}
+
+			m_diagnostic_update_count = 0;
+		}
+#endif
 	}
 
 	void poison_picker::run_randomize(unsigned long milliseconds)
