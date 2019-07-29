@@ -13,9 +13,12 @@ namespace poison_picker
 
 		void flow::activate(unsigned long milliseconds)
 		{
+			m_previous_milliseconds = milliseconds;
 			m_dashboard->display_clear();
 			m_dashboard->display_write("flow");
-
+			m_dashboard->display_set_cursor(0, 1);
+			m_dashboard->display_write("interval: ");
+			m_dashboard->display_write(m_flow_interval);
 
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
 				m_current_colors[i] = rgb(0,0,0);
@@ -25,11 +28,38 @@ namespace poison_picker
 
 		void flow::update(unsigned long milliseconds) 
 		{
+			//Set the interval
+			long rotary_encoder_change = m_dashboard->rotary_encoder_change();
+			if (rotary_encoder_change != 0)
+			{
+				m_flow_interval += rotary_encoder_change;
+
+				if (m_flow_interval < 0) 
+				{
+					m_flow_interval = 0;
+				}
+
+				m_dashboard->display_set_cursor(10, 1);
+				m_dashboard->display_write("       ");
+				m_dashboard->display_set_cursor(10, 1);
+				m_dashboard->display_write(m_flow_interval);
+			}
+
+			if (m_previous_milliseconds + m_flow_interval < milliseconds) 
+			{
+				m_previous_milliseconds = milliseconds;
+				reflow();
+			}
+		}
+
+		void flow::reflow()
+		{
+			//approach the colors
 			for (unsigned int i = 0; i < m_led_controller->get_number_of_segments(); i++) {
 				if (m_current_colors[i] == m_random_colors[i]) {
 					m_random_colors[i] = get_random_rgb();
 				}
-				
+
 				//Approach the rgb values
 				unsigned char r = approach(m_current_colors[i].r, m_random_colors[i].r, m_flow_increment);
 				unsigned char g = approach(m_current_colors[i].g, m_random_colors[i].g, m_flow_increment);
@@ -37,7 +67,7 @@ namespace poison_picker
 
 				rgb appoach_color(r, g, b);
 				m_current_colors[i] = appoach_color;
-				m_led_controller->set_segment(i, appoach_color);					
+				m_led_controller->set_segment(i, appoach_color);
 			}
 			m_led_controller->show();
 		}
@@ -64,84 +94,7 @@ namespace poison_picker
 
 		rgb flow::get_random_rgb() 
 		{
-			return rgb((unsigned char)random(0, 256), (unsigned char)random(0, 256), (unsigned char)random(0, 256));
+			return m_colors[random(0, AMOUNT_OF_COLORS)];
 		}
 	}
 }
-
-
-//////Create flowing pattern by generating new colors for each led and then approaching them over time
-////void flow() {
-////	//For every segment..
-////	for (int segment = 0; segment < NUM_LED_SEGMENTS; segment++) {
-////		//Check the first led of this segment against the randomized color
-////		if (leds[segment * LEDS_PER_SEGMENT] == random_colors[segment]) {
-////			random_colors[segment] = get_random_color();
-////			/*
-////				  if(segment == 0){
-////					Serial.print("Generated a new color for segment ");
-////					Serial.print(segment);
-////					Serial.print(": ");
-////					PrintColor(randomColors[segment]);
-////					Serial.print("\n");
-////				  }*/
-////		}
-////		else
-////		{
-////
-////			CRGB approach_color = approach(leds[segment * LEDS_PER_SEGMENT], random_colors[segment]);
-////			/*
-////				  if(segment == 0){
-////					Serial.print("Approaching, old: ");
-////					PrintColor(leds[segment * LEDS_PER_SEGMENT]);
-////					Serial.print(", new: ");
-////					PrintColor(approach);
-////					Serial.print("\n");
-////				  }
-////				  */
-////			set_segment(segment, approach_color);
-////		}
-////	}
-////}
-////
-////CRGB colors[] = {
-////		CRGB::Blue,
-////		CRGB::Crimson,
-////		CRGB::Cyan,
-////		CRGB::Gold,
-////		CRGB::Lime,
-////		CRGB::DarkGreen,
-////		CRGB::Green,
-////		CRGB::Lime,
-////		CRGB::Orange,
-////		CRGB::OrangeRed,
-////		CRGB::Orchid,
-////		CRGB::Purple,
-////		CRGB::Red,
-////		CRGB::Turquoise,
-////		CRGB::Violet,
-////		CRGB::Yellow,
-////		CRGB::YellowGreen,
-////		CRGB::Coral,
-////		CRGB::DarkRed,
-////		CRGB::DarkTurquoise,
-////		CRGB::Brown,
-////		CRGB::BurlyWood,
-////		CRGB::DarkGoldenrod,
-////		CRGB::DodgerBlue,
-////		CRGB::FireBrick,
-////		CRGB::Fuchsia,
-////		CRGB::Goldenrod,
-////		CRGB::Indigo,
-////		CRGB::Maroon,
-////		CRGB::MediumSpringGreen,
-////		CRGB::OliveDrab,
-////		CRGB::SaddleBrown,
-////		CRGB::SteelBlue,
-////		CRGB::Teal
-////}; //34
-////
-////CRGB get_random_color() {
-////	return colors[random(NUM_COLORS)];
-////}
-////
