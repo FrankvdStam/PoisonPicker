@@ -4,9 +4,9 @@
 #include "src/FastLED/FastLED.h"
 #include "src/FastLED/pixeltypes.h"
 
-#define NUMBER_OF_LEDS					72
+#define NUMBER_OF_LEDS					36
 #define NUMBER_OF_SEGMENTS				9
-#define NUMBER_OF_LEDS_PER_SEGMENTS		8
+#define NUMBER_OF_LEDS_PER_SEGMENTS		4
 
 class led_controller : public poison_picker::devices::i_led_controller {
 public:
