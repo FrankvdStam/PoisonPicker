@@ -38,21 +38,21 @@ void renderer::draw()
 	41-48	33-40	25-32
 	49-56	56-64	65-72
 	 */
-	const int row_size = 24;
-	const int col_size = 8;
+	const int row_size = 12;
+	const int col_size = 4;
 
 	for(unsigned int i = 0; i < m_led_colors.size(); i++)
 	{		
-		int index = serpentine_map(i, 24);
+		int index = serpentine_map(i, 12);
 		ImGui::ColorButton("", m_led_colors[index]);
 		
-		//Draw a bit of margin between groups of 8
-		if((i+1) % 24 != 0 && (i+1) % 8 == 0)
+		//Draw a bit of margin between groups of 4
+		if((i+1) % 12 != 0 && (i+1) % 4 == 0)
 		{
 			ImGui::SameLine();
 		}
-		//If not a group of 8 but also not a group of 24 (no newline) , draw the leds close to each other.
-		else if((i+1) % 24 != 0)
+		//If not a group of 4 but also not a group of 12 (no newline) , draw the leds close to each other.
+		else if((i+1) % 12 != 0)
 		{
 			ImGui::SameLine(0, 0);
 		}

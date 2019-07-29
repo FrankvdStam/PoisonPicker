@@ -2,7 +2,7 @@
 #include "led_controller.h"
 
 
-led_controller::led_controller(renderer* renderer) : i_led_controller(72, 9, 8)
+led_controller::led_controller(renderer* renderer) : i_led_controller(36, 9, 4)
 {
 	m_renderer = renderer;
 

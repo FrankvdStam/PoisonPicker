@@ -17,8 +17,8 @@ public:
 	void show() override;
 
 private:
-	const unsigned int m_amount_of_leds = 72;
-	const unsigned int m_segment_size = 8;
+	const unsigned int m_amount_of_leds = 36;
+	const unsigned int m_segment_size = 4;
 	const unsigned int m_amount_of_segments = 9;
 	int m_brightness;
 	std::vector<rgb> m_leds;
