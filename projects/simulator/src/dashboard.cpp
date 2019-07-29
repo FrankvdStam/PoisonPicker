@@ -130,6 +130,7 @@ void dashboard::display_flush()
 		//std::cout << std::endl;
 		text += '\n';
 	}
-
+	//std::cout << "flushing" << std::endl;
+	//std::cout << text << std::endl;
 	m_renderer->m_display_text = text;
 }

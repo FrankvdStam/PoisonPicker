@@ -58,9 +58,13 @@ namespace poison_picker
 	{
 		if (m_dashboard->button_pressed_randomize())
 		{
+			m_animations[m_current_animation]->deactivate(milliseconds);
+
 			m_state = state::randomizing;
 			m_randomize_animation->activate(milliseconds);
 			m_randomize_milliseconds = milliseconds;
+
+			return;//don't allow the current animation to update.
 		}
 
 		//Return to disabled state whenever the key is pressed
@@ -98,6 +102,7 @@ namespace poison_picker
 		{
 			m_state = state::animations;
 			m_randomize_animation->deactivate(milliseconds);
+			m_animations[m_current_animation]->activate(milliseconds);
 			return;
 		}
 
