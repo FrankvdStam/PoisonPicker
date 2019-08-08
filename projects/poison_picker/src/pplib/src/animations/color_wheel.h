@@ -23,6 +23,7 @@ namespace poison_picker
 			void deactivate(unsigned long miliseconds);
 
 		private:
+			void display_rgb(rgb color);
 			rgb get_color_from_graph(long position);
 			unsigned char map_graph_color(long position, long offset);
 

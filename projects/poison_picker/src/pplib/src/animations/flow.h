@@ -21,7 +21,7 @@ namespace poison_picker
 			long m_flow_interval = 35;
 			unsigned long m_previous_milliseconds = 0;
 
-			const int steps = 20;
+			const int steps = 60;
 			int* m_current_steps;
 			rgb* m_current_colors;
 			rgb* m_random_colors;

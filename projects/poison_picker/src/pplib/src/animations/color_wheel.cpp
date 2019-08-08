@@ -8,15 +8,30 @@ namespace poison_picker {
 		
 		void color_wheel::activate(unsigned long miliseconds)
 		{
-			m_dashboard->display_clear();
-			m_dashboard->display_write("Color wheel");
-			m_dashboard->display_set_cursor(0, 1);
-			m_dashboard->display_write("Value:");
-
 			rgb color = get_color_from_graph(m_position);
+						
+			display_rgb(color);
 
 			m_led_controller->set_all_leds(color);
 			m_led_controller->show();
+		}
+
+		void color_wheel::display_rgb(rgb color)
+		{
+			m_dashboard->display_clear();
+			m_dashboard->display_write("Color wheel");
+
+			m_dashboard->display_set_cursor(0, 1);
+			m_dashboard->display_write("r: ");
+			m_dashboard->display_write(color.r);
+
+			m_dashboard->display_set_cursor(0, 2);
+			m_dashboard->display_write("g: ");
+			m_dashboard->display_write(color.g);
+
+			m_dashboard->display_set_cursor(0, 3);
+			m_dashboard->display_write("b: ");
+			m_dashboard->display_write(color.b);
 		}
 
 		void color_wheel::update(unsigned long miliseconds) 
@@ -31,11 +46,8 @@ namespace poison_picker {
 				m_led_controller->set_all_leds(color);
 				m_led_controller->show();
 
-				m_dashboard->display_set_cursor(7, 1);
-				m_dashboard->display_write("     ");
-				int digits = helper::amount_of_digits(m_position);
-				m_dashboard->display_set_cursor(10 - digits, 1);
-				m_dashboard->display_write(m_position);
+				helper::log_rgb(color, true);
+				display_rgb(color);
 			}
 		}
 		
