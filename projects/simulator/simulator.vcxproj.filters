@@ -19,6 +19,7 @@
     </ClInclude>
     <ClInclude Include="src\led_controller.h" />
     <ClInclude Include="src\simulator_pch.h" />
+    <ClInclude Include="src\cout_logger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\graphics\imgui_impl_glfw.cpp">
@@ -33,5 +34,6 @@
     <ClCompile Include="src\led_controller.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\dashboard.cpp" />
+    <ClCompile Include="src\cout_logger.cpp" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 #include "devices/i_dashboard.h"
 #include "animations/i_animation.h"
 
-#define POISON_PICKER_DIAGNOSTICS
+//#define POISON_PICKER_DIAGNOSTICS
 
 using poison_picker::devices::i_dashboard;
 using poison_picker::devices::i_led_controller;
@@ -41,8 +41,8 @@ namespace poison_picker
 		unsigned int m_current_animation = 0;
 
 
-		unsigned int m_randomize_milliseconds = 0;
-		unsigned int m_randomize_interval = 10000;
+		unsigned long m_randomize_milliseconds = 0;
+		unsigned long m_randomize_interval = 10000;
 		i_animation* m_randomize_animation;
 
 #ifdef POISON_PICKER_DIAGNOSTICS

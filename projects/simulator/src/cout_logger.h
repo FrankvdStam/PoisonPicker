@@ -1,12 +1,12 @@
 #pragma once
-#include "src/pplib/include/pplib/pplib.h"
-//TODO: figure out how to get rid of this include, it's needed for all serial calls in the cpp file.
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Arduino.h"
+#include "pplib/pplib.h"
+#include <iostream>
+#include <string>
 
-class serial_logger : public i_logger
+class cout_logger : public i_logger
 {
 public:
-	serial_logger() : i_logger() {}
+	cout_logger() : i_logger() {}
 
 	void print(const char* s) override;
 	void print(char c) override;
@@ -24,4 +24,8 @@ public:
 	void println(long l, int f = DEC) override;
 	void println(unsigned long l, int f = DEC) override;
 	void println(void) override;
+
+private:
+	void cout_write(std::string str);
+	void cout_newline();
 };

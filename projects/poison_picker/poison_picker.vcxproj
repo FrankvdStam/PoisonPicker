@@ -82,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="dashboard.cpp" />
     <ClCompile Include="led_controller.cpp" />
+    <ClCompile Include="serial_logger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="poison_picker.ino" />

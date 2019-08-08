@@ -1,49 +1,17 @@
 #include <iostream>
+#include <stdlib.h> 
+#include <chrono>
+#include <time.h>
+#include <string>
 
 #include "pplib/pplib.h"
 #include "led_controller.h"
 #include "dashboard.h"
 #include "graphics/renderer.h"
-#include <stdlib.h> 
-#include <chrono>
-#include <time.h>
-#include <string>
-//To be implemented by a client
+#include "cout_logger.h"
 
 auto start_time = std::chrono::high_resolution_clock::now();
-
 auto finish = std::chrono::high_resolution_clock::now();
-
-class cout_logger : public i_logger
-{
-public:
-	cout_logger() : i_logger(){}
-
-	void print(const char* str) override
-	{ 
-		std::cout << str;		
-	}
-
-	void print(int i) override
-	{ 
-		std::cout << std::to_string(i);
-	}	
-
-	void print(unsigned long i) override
-	{
-		std::cout << std::to_string(i);
-	}
-
-	void print(unsigned char i) override
-	{
-		std::cout << std::to_string(i);
-	}
-
-	void println (const char* str) override
-	{
-		std::cout << str << std::endl;
-	}
-};
 
 long random(long min, long max)
 {

@@ -95,6 +95,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\cout_logger.h" />
     <ClInclude Include="src\dashboard.h" />
     <ClInclude Include="src\debug.h" />
     <ClInclude Include="src\graphics\imgui_impl_glfw.h" />
@@ -104,6 +105,7 @@
     <ClInclude Include="src\simulator_pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\cout_logger.cpp" />
     <ClCompile Include="src\dashboard.cpp" />
     <ClCompile Include="src\graphics\imgui_impl_glfw.cpp" />
     <ClCompile Include="src\graphics\imgui_impl_opengl2.cpp" />
