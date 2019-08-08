@@ -91,6 +91,7 @@
     <ClInclude Include="src\i_logger.h" />
     <ClInclude Include="src\random.h" />
     <ClInclude Include="src\rgb.h" />
+    <ClInclude Include="src\animations\tictactoe.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\animations\brightness.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="src\poison_picker.cpp" />
     <ClCompile Include="src\helper.cpp" />
     <ClCompile Include="src\i_logger.cpp" />
+    <ClCompile Include="src\animations\tictactoe.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -36,12 +36,13 @@ int main(int argc, char** argv)
 
 	i_animation* randomize_animation = new randomize(m_led_controller, m_dashboard);
 
-	i_animation** animations = new i_animation*[4];
-	animations[0] = new color_wheel(m_led_controller, m_dashboard);
-	animations[1] = new flow(m_led_controller, m_dashboard);
-	animations[2] = new brightness(m_led_controller, m_dashboard);
-	animations[3] = new rinald(m_led_controller, m_dashboard);
-	poison_picker::poison_picker* m_poison_picker = new poison_picker::poison_picker(m_led_controller, m_dashboard, randomize_animation, animations, 4);
+	i_animation** animations = new i_animation*[5];
+	animations[0] = new tictactoe(m_led_controller, m_dashboard);
+	animations[1] = new color_wheel(m_led_controller, m_dashboard);
+	animations[2] = new flow(m_led_controller, m_dashboard);
+	animations[3] = new brightness(m_led_controller, m_dashboard);
+	animations[4] = new rinald(m_led_controller, m_dashboard);
+	poison_picker::poison_picker* m_poison_picker = new poison_picker::poison_picker(m_led_controller, m_dashboard, randomize_animation, animations, 5);
 
 	while(!r->window_should_close())
 	{

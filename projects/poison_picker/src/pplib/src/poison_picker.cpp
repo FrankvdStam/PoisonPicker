@@ -38,19 +38,23 @@ namespace poison_picker
 
 	void poison_picker::run_disabled(unsigned long milliseconds)
 	{
-		//Wait for keypress and go to animation state
-		if (m_dashboard->button_pressed_key())
-		{
-			m_state = state::animations;
-			m_animations[m_current_animation]->activate(milliseconds);
-		}
-		else
+		if (!m_disabled)
 		{
 			m_led_controller->set_all_leds(rgb(0, 0, 0));
 			m_led_controller->show();
 
 			m_dashboard->display_clear();
 			m_dashboard->display_write("disabled");
+
+			m_disabled = true;
+		}
+
+		//Wait for keypress and go to animation state
+		if (m_dashboard->button_pressed_key())
+		{
+			m_state = state::animations;
+			m_disabled = false;
+			m_animations[m_current_animation]->activate(milliseconds);
 		}
 	}
 

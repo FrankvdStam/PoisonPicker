@@ -59,6 +59,7 @@
     </ClInclude>
     <ClInclude Include="src\animations\randomize.h" />
     <ClInclude Include="src\colors.h" />
+    <ClInclude Include="src\animations\tictactoe.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\animations\brightness.cpp">
@@ -84,5 +85,6 @@
     </ClCompile>
     <ClCompile Include="src\animations\randomize.cpp" />
     <ClCompile Include="src\colors.cpp" />
+    <ClCompile Include="src\animations\tictactoe.cpp" />
   </ItemGroup>
 </Project>

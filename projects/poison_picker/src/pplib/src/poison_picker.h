@@ -33,8 +33,9 @@ namespace poison_picker
 		i_dashboard* m_dashboard;
 
 		state m_state = state::disabled;
+		bool m_disabled = false;
 		bool m_can_toggle_state = true;
-
+		
 		bool m_can_toggle_animation = true;
 		i_animation** m_animations;
 		unsigned int m_animations_size = 0;

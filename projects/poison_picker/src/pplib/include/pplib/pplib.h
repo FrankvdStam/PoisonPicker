@@ -15,6 +15,7 @@ using poison_picker::animations::i_animation;
 using poison_picker::rgb;
 
 //premade animations
+#include "../../src/animations/tictactoe.h"
 #include "../../src/animations/color_wheel.h"
 #include "../../src/animations/flow.h"
 #include "../../src/animations/brightness.h"
@@ -26,6 +27,7 @@ using poison_picker::animations::flow;
 using poison_picker::animations::brightness;
 using poison_picker::animations::rinald;
 using poison_picker::animations::randomize;
+using poison_picker::animations::tictactoe;
 
 //animator to tie things together
 #include "../../src/poison_picker.h"
