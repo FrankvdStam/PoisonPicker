@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\animations\cylon.h" />
     <ClInclude Include="include\pplib\pplib.h" />
     <ClInclude Include="src\animations\brightness.h" />
     <ClInclude Include="src\animations\color_wheel.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="src\animations\tictactoe.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\animations\cylon.cpp" />
     <ClCompile Include="src\animations\brightness.cpp" />
     <ClCompile Include="src\animations\color_wheel.cpp" />
     <ClCompile Include="src\animations\flow.cpp" />
